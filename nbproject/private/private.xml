@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/xampp/htdocs/direct_aid/app/Http/routes.php</file>
+            <file>file:/C:/xampp/htdocs/direct_aid/app/Http/Controllers/AdminController.php</file>
+            <file>file:/C:/xampp/htdocs/direct_aid/resources/views/category/addcategory.blade.php</file>
+            <file>file:/C:/xampp/htdocs/direct_aid/app/Http/Controllers/CategoryManagementController.php</file>
+            <file>file:/C:/xampp/htdocs/direct_aid/app/Models/Project.php</file>
+            <file>file:/C:/xampp/htdocs/direct_aid/app/Http/Controllers/CategoryController.php</file>
+            <file>file:/C:/xampp/htdocs/direct_aid/resources/views/category/editcategory.blade.php</file>
+            <file>file:/C:/xampp/htdocs/direct_aid/app/Models/DonationMaterial.php</file>
+            <file>file:/C:/xampp/htdocs/direct_aid/app/Http/Controllers/ProjectManagementController.php</file>
+            <file>file:/C:/xampp/htdocs/direct_aid/resources/views/project/manageproject.blade.php</file>
+            <file>file:/C:/xampp/htdocs/direct_aid/app/Models/DonationProjectMaterial.php</file>
+            <file>file:/C:/xampp/htdocs/direct_aid/app/Http/Controllers/DonationProjectMaterialController.php</file>
+            <file>file:/C:/xampp/htdocs/direct_aid/resources/views/project/details.blade.php</file>
+            <file>file:/C:/xampp/htdocs/direct_aid/app/Models/Category.php</file>
+        </group>
+    </open-files>
+</project-private>
