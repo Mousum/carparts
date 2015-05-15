@@ -9,6 +9,7 @@ class AdminModel extends Model {
     //
     protected $table = 'admin';
     public $timestamps = FALSE;
+    protected $primaryKey = 'user_id';
 
     public function CheckLogin($input) {
         $user = AdminModel::where('user_name', '=', $input['username'])
@@ -20,11 +21,12 @@ class AdminModel extends Model {
     public function Registration($input)
     {
         $user = new UserModel();
-        $user->username = $input['username'];
+        $user->user_name = $input['username'];
         $user->password = $input['password'];
-        $user->email = $input['email'];
-        $user->isBlock = 0;
-        $user->createDate = time();
+        $user->is_block = 0;
+        $user->type ="admin";
+        $user->create_date = time();
+        $user->update_date = time();
         if($user->save())
         {
             return $user;

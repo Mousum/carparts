@@ -20,6 +20,19 @@
                                 </ul>
                             </div>
                         </li>
+                        <li>
+                            <a href="#sidebar-discover-media" class="glyphicons picture" data-toggle="sidebar-discover"><span class="badge pull-right badge-primary hidden-md">2</span><i></i><span>Admin</span></a>
+                            <div id="sidebar-discover-media" class="sidebar-discover-menu">
+                                <div class="innerAll text-center border-bottom text-muted-dark">
+                                    <strong>Admin</strong>
+                                    <button class="btn btn-xs btn-default close-discover"><i class="fa fa-fw fa-times"></i></button>
+                                </div>
+                                <ul class="animated fadeIn">
+                                    <li><a href="{{URL::to('/createadmin')}}"><i class="fa fa-video-camera"></i>Add Admin</a></li>
+                                    <li><a href="{{URL::to('/manageadmin')}}"><i class="fa fa-camera"></i> Manage Admin</a></li>
+                                </ul>
+                            </div>
+                        </li>
 
                         <li>
                             <a href="#sidebar-discover-media" class="glyphicons picture" data-toggle="sidebar-discover"><span class="badge pull-right badge-primary hidden-md">2</span><i></i><span>Category</span></a>

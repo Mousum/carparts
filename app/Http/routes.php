@@ -19,6 +19,14 @@ Route::resource('user', 'UserController');
 Route::get('/','LoginController@index');
 Route::post('check','LoginController@loginCheck');
 Route::get('admin','AdminController@index');
+Route::get('createadmin','AdminController@createAdmin');
+Route::post('saveadmin','AdminController@saveAdmin');
+Route::get('manageadmin','AdminController@manage');
+Route::get('editadmin/{id}','AdminController@edit');
+Route::post('updateadmin/{id}','AdminController@update');
+Route::get('deleteadmin/{id}','AdminController@delete');
+Route::post('blockadmin','AdminController@block');
+Route::post('unblockadmin','AdminController@unblock');
 Route::get('login','LoginController@index');
 Route::get('logout','LoginController@logout');
 

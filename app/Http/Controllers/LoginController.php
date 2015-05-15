@@ -60,10 +60,6 @@ class LoginController extends AdminBaseController {
             Session::flush(); 
             return redirect('/login');
         }
-//        public function login()
-//        {
-//            $id = Session::get('Id');
-//            return ($id)? TRUE : FALSE;
-//        }
+
 
 }
