@@ -43,7 +43,7 @@ class LoginController extends AdminBaseController {
             $result =$admin_user->CheckLogin($input);
             if(count($result))
             {
-               $userData = array('Id'=>$result[0]['Id'],'username'=>$result[0]['username'],'email'=>$result[0]['email'],'accessType'=>$result[0]['accessType']);
+               $userData = array('Id'=>$result[0]['user_id'],'username'=>$result[0]['user_name'],'accessType'=>$result[0]['type']);
                Session::put($userData);
                
                echo json_encode(array('status'=>TRUE,'msg'=>'Login Successful'));

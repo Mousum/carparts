@@ -69,7 +69,7 @@ return [
 		'mysql' => [
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'directaid',
+			'database'  => 'carparts',
 			'username'  => 'root',
 			'password'  => '',
 			'charset'   => 'utf8',

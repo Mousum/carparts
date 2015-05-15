@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class AdminModel extends Model {
 
     //
-    protected $table = 'admin_login';
+    protected $table = 'admin';
     public $timestamps = FALSE;
 
     public function CheckLogin($input) {
-        $user = AdminModel::where('email', '=', $input['email'])
+        $user = AdminModel::where('user_name', '=', $input['username'])
                 ->where('password', '=', md5($input['password']))
                 ->get();
         return $user;
