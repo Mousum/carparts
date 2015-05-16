@@ -39,3 +39,9 @@ Route::post('savebrand','BrandController@saveBrand');
 //	'auth' => 'Auth\AuthController',
 //	'password' => 'Auth\PasswordController',
 //]);
+
+
+//Model
+
+Route::get('createmodel','ModelController@createModel');
+Route::post('savemodel','ModelController@saveModel');
