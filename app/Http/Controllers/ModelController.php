@@ -51,6 +51,12 @@ class ModelController extends AdminBaseController {
 			}
 
         }
+		public function manage()
+		{
+         	 $data = new Moodel();
+			 $models = $data->getAllModels();
+			 return view('model.managemodel')->with('models',$models);
+		}
 
 
 }

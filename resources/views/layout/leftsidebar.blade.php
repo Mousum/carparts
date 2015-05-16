@@ -49,15 +49,15 @@
                         </li>
 
                         <li>
-                            <a href="#sidebar-discover-email" class="glyphicons envelope" data-toggle="sidebar-discover"><i></i><span>Project</span></a>
+                            <a href="#sidebar-discover-email" class="glyphicons envelope" data-toggle="sidebar-discover"><i></i><span>Model</span></a>
                             <div id="sidebar-discover-email" class="sidebar-discover-menu">
                                 <div class="innerAll text-center border-bottom text-muted-dark">
-                                    <strong>Project</strong>
+                                    <strong>Model</strong>
                                     <button class="btn btn-xs btn-default close-discover"><i class="fa fa-fw fa-times"></i></button>
                                 </div>
                                 <ul class="animated fadeIn">
-                                    <li><a href="{{URL::to('/addproject')}}"><i class="fa fa-envelope"></i> Add Project</a></li>
-                                    <li><a href="{{URL::to('/manageproject')}}"><i class="fa fa-pencil"></i> Manage Project</a></li>
+                                    <li><a href="{{URL::to('/createmodel')}}"><i class="fa fa-envelope"></i> Add Model</a></li>
+                                    <li><a href="{{URL::to('/managemodel')}}"><i class="fa fa-pencil"></i> Manage Model</a></li>
                                 </ul>
                             </div>
                         </li>

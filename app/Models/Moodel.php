@@ -11,5 +11,12 @@ class Moodel extends Model {
     public $timestamps = FALSE;
     protected $primaryKey = 'model_id';
 
+    public function  getAllModels()
+    {
+        $data = Moodel::join('brand', 'model.brand_id', '=', 'brand.brand_id')
+            ->select('model.*','brand.brand_name')
+            ->get();
+        return $data;
+    }
     
 }
