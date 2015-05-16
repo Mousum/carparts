@@ -5,7 +5,8 @@
 <div class="separator-h"></div>
 
 <div class="row">
-    <form method="post" action="{{URL::to('/savebrand')}}" >
+  
+    <form method="post" action="{{URL::to('/savebrand')}}" enctype="multipart/form-data" >
         <div class="col-md-6">
             <div class="widget widget-heading-simple widget-body-white">
 
@@ -16,7 +17,7 @@
                 <!-- // Widget heading END -->
 
                 <div class="widget-body">
-                    <input type="text" name="name" placeholder="username" class="form-control" style="color:black !important;">
+                    <input type="text" name="brand_name" placeholder="Brand Name" class="form-control" style="color:black !important;">
                 </div>
 
                 
@@ -26,14 +27,15 @@
                 <!-- // Widget heading END -->
 
                 <div class="widget-body">
-                    <input type="password"  id ="password" name="logo" placeholder="password" class="form-control" style="color:black !important;">
+                    <input type="file"  id ="logo" name="logo" placeholder="Logo" class="form-control" style="color:black !important;">
                 </div>
 
             </div>
             <button id="save" class="btn btn-success"><i class="icon-add-symbol"></i> Save</button>
             <button class="btn btn-danger"><i class="fa fa-trash-o"></i> Cancel</button>
         </div>
-    </form>
+    
+     </form>
 
 </div>
 <script>

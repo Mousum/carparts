@@ -32,7 +32,7 @@ Route::get('logout','LoginController@logout');
 
 
 //Brand
-
+Route::get('brands','BrandController@Index');
 Route::get('createbrand','BrandController@createBrand');
 Route::post('savebrand','BrandController@saveBrand');
 //Route::controllers([
