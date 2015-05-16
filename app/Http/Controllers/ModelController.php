@@ -57,6 +57,16 @@ class ModelController extends AdminBaseController {
 			 $models = $data->getAllModels();
 			 return view('model.managemodel')->with('models',$models);
 		}
+	public function delete($id) {
+
+		$model = Moodel::find($id);
+
+		if ($model->delete()) {
+
+			return redirect('/managemodel');
+		}
+	}
+
 
 
 }

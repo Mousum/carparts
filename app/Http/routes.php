@@ -46,3 +46,4 @@ Route::post('savebrand','BrandController@saveBrand');
 Route::get('createmodel','ModelController@createModel');
 Route::post('savemodel','ModelController@saveModel');
 Route::get('managemodel','ModelController@manage');
+Route::get('deletemodel/{id}','ModelController@delete');

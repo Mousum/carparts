@@ -96,7 +96,7 @@
 
         if (confirm("Do you want to delete this item?") == true) {
 
-            window.location.href = $('#base_url').val() + "/deleteadmin/" + id;
+            window.location.href = $('#base_url').val() + "/deletemodel/" + id;
         } else {
             return false;
         }
