@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2015 at 11:47 AM
+-- Generation Time: May 16, 2015 at 10:29 AM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.16
 
@@ -29,14 +29,22 @@ USE `carparts`;
 --
 
 CREATE TABLE IF NOT EXISTS `admin` (
-  `user_id` int(10) NOT NULL,
+  `user_id` int(10) NOT NULL AUTO_INCREMENT,
   `user_name` varchar(100) NOT NULL,
   `password` varchar(50) NOT NULL,
   `create_date` int(10) NOT NULL,
   `update_date` int(10) NOT NULL,
   `is_block` tinyint(4) NOT NULL,
-  `type` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `type` varchar(20) NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`user_id`, `user_name`, `password`, `create_date`, `update_date`, `is_block`, `type`) VALUES
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 121212, 121212, 0, 'admin');
 
 -- --------------------------------------------------------
 
@@ -140,7 +148,7 @@ CREATE TABLE IF NOT EXISTS `product` (
 
 CREATE TABLE IF NOT EXISTS `product_image` (
   `image_id` int(10) NOT NULL AUTO_INCREMENT,
-  `image_name` varchar(100) NOT NULL,
+  `product_id` varchar(100) NOT NULL,
   `image_loctation` varchar(150) NOT NULL,
   PRIMARY KEY (`image_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
