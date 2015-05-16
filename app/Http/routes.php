@@ -31,8 +31,10 @@ Route::get('login','LoginController@index');
 Route::get('logout','LoginController@logout');
 
 
+//Brand
 
-
+Route::get('createbrand','BrandController@createBrand');
+Route::post('savebrand','BrandController@saveBrand');
 //Route::controllers([
 //	'auth' => 'Auth\AuthController',
 //	'password' => 'Auth\PasswordController',
