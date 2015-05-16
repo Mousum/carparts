@@ -39,3 +39,13 @@ Route::post('savebrand','BrandController@saveBrand');
 //	'auth' => 'Auth\AuthController',
 //	'password' => 'Auth\PasswordController',
 //]);
+
+
+//Model
+
+Route::get('createmodel','ModelController@createModel');
+Route::post('savemodel','ModelController@saveModel');
+Route::get('managemodel','ModelController@manage');
+Route::get('deletemodel/{id}','ModelController@delete');
+Route::get('editmodel/{id}','ModelController@edit');
+Route::post('updatemodel/{id}','ModelController@update');
