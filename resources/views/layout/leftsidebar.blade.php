@@ -33,21 +33,6 @@
                                 </ul>
                             </div>
                         </li>
-
-                        <li>
-                            <a href="#sidebar-discover-media" class="glyphicons picture" data-toggle="sidebar-discover"><span class="badge pull-right badge-primary hidden-md">2</span><i></i><span>Category</span></a>
-                            <div id="sidebar-discover-media" class="sidebar-discover-menu">
-                                <div class="innerAll text-center border-bottom text-muted-dark">
-                                    <strong>Category</strong>
-                                    <button class="btn btn-xs btn-default close-discover"><i class="fa fa-fw fa-times"></i></button>
-                                </div>
-                                <ul class="animated fadeIn">
-                                    <li><a href="{{URL::to('/addcategory')}}"><i class="fa fa-video-camera"></i>Add category</a></li>
-                                    <li><a href="{{URL::to('/managecategory')}}"><i class="fa fa-camera"></i> Manage Category</a></li>
-                                </ul>
-                            </div>
-                        </li>
-
                         <li>
                             <a href="#sidebar-discover-email" class="glyphicons envelope" data-toggle="sidebar-discover"><i></i><span>Model</span></a>
                             <div id="sidebar-discover-email" class="sidebar-discover-menu">
@@ -61,19 +46,7 @@
                                 </ul>
                             </div>
                         </li>
-                        <li>
-                            <a href="#sidebar-discover-email" class="glyphicons envelope" data-toggle="sidebar-discover"><i></i><span>Donation Matetrials</span></a>
-                            <div id="sidebar-discover-email" class="sidebar-discover-menu">
-                                <div class="innerAll text-center border-bottom text-muted-dark">
-                                    <strong>Project</strong>
-                                    <button class="btn btn-xs btn-default close-discover"><i class="fa fa-fw fa-times"></i></button>
-                                </div>
-                                <ul class="animated fadeIn">
-                                    <li><a href="{{URL::to('/addproject')}}"><i class="fa fa-envelope"></i> Add Project</a></li>
-                                    <li><a href="{{URL::to('/manageproject')}}"><i class="fa fa-pencil"></i> Manage Project</a></li>
-                                </ul>
-                            </div>
-                        </li>
+
 <!--                        <li>
                             <a href="#sidebar-discover-courses" class="glyphicons crown" data-toggle="sidebar-discover"><i></i><span>Learning</span></a>
                             <div id="sidebar-discover-courses" class="sidebar-discover-menu">
