@@ -40,10 +40,16 @@ class ModelController extends AdminBaseController {
         }
         public function saveModel()
         {
-            echo "<pre>";
-            print_r(Input::all());
-            echo Input::get('name');
-            die;
+            $model = new Moodel();
+			$model->model_name = Input::get('name');
+			$model->brand_id = Input::get('brand');
+			$model->create_date = time();
+			$model->update_date = time();
+			if($model->save())
+			{
+				return redirect('/managemodel');
+			}
+
         }
 
 
