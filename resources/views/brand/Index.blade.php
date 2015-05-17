@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('content')
-<h2 class="margin-none">All Brands &nbsp;<i class="fa fa-fw fa-pencil text-muted"></i><a href="{{URL::to('/createbrand/')}}" style="float:right; margin-bottom: 20px;" class="btn btn-inverse">Add Brand</a></h2>
+<h2 class="margin-none">All Brands &nbsp;<i class="fa fa-fw fa-pencil text-muted"></i><a href="{{URL::to('brands/create')}}" style="float:right; margin-bottom: 20px;" class="btn btn-inverse">Add Brand</a></h2>
 
 <div class="separator-h"></div>
 @if(Session::has('success'))
@@ -8,6 +8,7 @@
     <h2>{!! Session::get('success') !!}</h2>
 </div>
 @endif
+<div id="del-msg" class="alert alert-success" style="display: none;"></div>
 <div class="row">
     <div class="widget widget-body-white widget-heading-simple">
         <div class="widget-body">
@@ -20,14 +21,42 @@
                     <th>Action</th>
                     </thead>
                     <tbody>
+                       <?php $i=0;?>
                         @foreach($brands as $item)
                         <tr>
-                            <td>{{$ct= $item['brand_id']}} </td>
-                            <td><img src="{{$item['brand_logo']}}" alt="Smiley face" height="42" width="42"></td>
+                            <td><?php echo ++$i;?> </td>
+                            <td><img src="{{$item['brand_logo']}}" alt="{{$item['brand_name']}}" height="42" width="42"></td>
                             <td>{{$item['brand_name']}} </td>
-                           
+
                             <td>
-                                <a href="{{URL::to('/editadmin/').'/'.$ct}}" title="Edit" class="btn btn-circle btn-success"><i class="icon-compose"></i></a>
+                                <a href="{{URL::to('brands/edit/').'/'.$item['brand_id']}}" title="Edit" class="btn btn-circle btn-success"><i class="icon-compose"></i></a>
+
+                                <!-- Trigger the modal with a button -->
+                                <button type="button" class="btn btn-circle btn-danger" data-toggle="modal" data-target="#delModal{{$item['brand_id']}}"><i class="icon-trash-can"></button>
+
+
+
+                                <!-- Modal -->
+                                <div id="delModal{{$item['brand_id']}}" class="modal fade" role="dialog">
+                                    <div class="modal-dialog">
+
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Delete Confirmation</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>Are You Sure Want To Delete {{$item['brand_name']}} Brand?<br/>Click "Delete" To Continue. </p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-info delete" data-id="{{$item['brand_id']}}" >Delete</button>
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                         @endforeach
@@ -50,54 +79,34 @@
 <script>
 
 $(document).ready(function () {
-$('#myTable').DataTable();
+    $('#myTable').DataTable();
 });</script>
 <script>
-    function block_admin(id)
-    {
-        $.ajax({
-            url: $("#base_url").val() + "/blockadmin",
+$(".delete").click(function(){
+    var id =$(this).attr('data-id');
+     $.ajax({
+            url: $("#base_url").val() + "/deleteBrand",
             type: 'POST',
             data: {id: id},
-            dataType: 'json',
-            success: function (result) {
-                if (result.status)
+            dataType:'html',
+            success: function(result) {
+                if (result=="Success")
                 {
-                    $('#status_' + id).html('Block');
-                    $('#block_admin_' + id).hide();
-                    $('#unblock_admin_' + id).show();
+                     $('.close').trigger('click');
+                        $("#del-msg").html(" <b class='alert-success'>Successfully Deleted!Loading New Data...</b>");
+                        $("#del-msg").show("slow");
+                        setTimeout(function () {
+                            location.reload();//will redirect to your blog page (an ex: blog.html)
+                        }, 2000);
+                  
+                   
                 }
             }
         });
-    }
-    function unblock_admin(id)
-    {
-        $.ajax({
-            url: $("#base_url").val() + "/unblockadmin",
-            type: 'POST',
-            data: {id: id},
-            dataType: 'json',
-            success: function (result) {
-                if (result.status)
-                {
-                    $('#status_' + id).html('Active');
-                    $('#unblock_admin_' + id).hide();
-                    $('#block_admin_' + id).show();
-                }
-
-
-            }
-        });
-    }
-    function myfunction(id) {
-
-        if (confirm("Do you want to delete this item?") == true) {
-
-            window.location.href = $('#base_url').val() + "/deleteadmin/" + id;
-        } else {
-            return false;
-        }
-
-    }
+})
 </script>
+
+
+
+
 @stop

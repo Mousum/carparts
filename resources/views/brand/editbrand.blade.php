@@ -6,20 +6,21 @@
 <div id="msg" style="display: none;"></div>
 <div class="row">
 
-    <form method="post" action="{{URL::to('/savebrand')}}" enctype="multipart/form-data" >
+    <form method="post" action="{{URL::to('/updateBrand/'.$brand['brand_id'])}}" enctype="multipart/form-data" >
         <div class="col-md-6">
             <div class="widget widget-heading-simple widget-body-white">
                 <div class="widget-head">
                     <h4 class="heading">Brand Name</h4>
                 </div>
                 <div class="widget-body">
-                    <input type="text" name="brand_name" id="b_name" placeholder="Brand Name" class="form-control" style="color:black !important;">
+                    <input type="text" name="brand_name" id="b_name" value="{{$brand['brand_name']}}"class="form-control" style="color:black !important;">
                 </div>
                 <div class="widget-head">
                     <h4 class="heading">Brand Logo</h4>
                 </div>
                 <div class="widget-body">
-                    <input type="file"  id ="logo" name="logo" placeholder="Logo" class="form-control" style="color:black !important;">
+                    <img src="{{URL::to($brand['brand_logo'])}}" id="thumbnil" alt="{{$brand['brand_name']}}" height="80" width="80">
+                    <input type="file"  id ="logo" name="logo" placeholder="Logo" class="form-control" onchange="readURL(this);"  style="color:black !important;">
                 </div>
             </div>
             <button id="save" class="btn btn-success"><i class="icon-add-symbol"></i> Save</button>
@@ -30,6 +31,25 @@
 
 </div>
 <script>
+   function readURL(fileInput) {
+        var files = fileInput.files;
+        for (var i = 0; i < files.length; i++) {           
+            var file = files[i];
+            var imageType = /image.*/;     
+            if (!file.type.match(imageType)) {
+                continue;
+            }           
+            var img=document.getElementById("thumbnil");            
+            img.file = file;    
+            var reader = new FileReader();
+            reader.onload = (function(aImg) { 
+                return function(e) { 
+                    aImg.src = e.target.result; 
+                }; 
+            })(img);
+            reader.readAsDataURL(file);
+        }   
+    }
     $("#save").click(function () {
         if ($("#b_name").val() == "") {
             $("#b_name").css("border-color", "#cc3a3a");
@@ -52,7 +72,7 @@
             {
                 var fsize = $('#logo')[0].files[0].size;
                 var ftype = $('#logo')[0].files[0].type;
-               
+          
                 if (fsize > 1048576)
                 {
                     $("#logo").css("border-color", "#cc3a3a");
@@ -73,9 +93,6 @@
 
             return true;
         }
-
-       
-
     });
 
 </script>

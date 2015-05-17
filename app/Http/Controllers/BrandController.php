@@ -63,4 +63,36 @@ class BrandController extends AdminBaseController {
         }
     }
 
+    public function editBrand($id) {
+        $brand = Brand::find($id);
+        return view('brand.editbrand')->with('brand', $brand);
+    }
+
+    public function updateBrand($id) {
+        $brand = Brand::find($id);
+        if (Input::get('brand_name')) {
+            $brand->brand_name = Input::get('brand_name');
+        }
+        if (Input::file('logo')) {
+            $destinationPath = 'uploads/BrandLogos'; // upload path
+            $extension = Input::file('logo')->getClientOriginalExtension(); // getting image extension
+            $fileName = $brand->brand_name . '.' . $extension; // renameing image
+            Input::file('logo')->move($destinationPath, $fileName);
+            $brand->brand_logo = $destinationPath . '/' . $fileName;
+        }
+        if ($brand->save()) {
+            Session::flash('success', 'Brand updated Successfully');
+            return redirect('/brands');
+        }
+    }
+     public function delete() {
+       $id = Input::get('id');
+       $brand = Brand::find($id);
+
+        if ($brand->delete()) {
+
+            return "Success";
+        }
+    }
+
 }

@@ -33,8 +33,11 @@ Route::get('logout','LoginController@logout');
 
 //Brand
 Route::get('brands','BrandController@Index');
-Route::get('createbrand','BrandController@createBrand');
+Route::get('brands/create','BrandController@createBrand');
+Route::get('brands/edit/{id}','BrandController@editBrand');
 Route::post('savebrand','BrandController@saveBrand');
+Route::post('updateBrand/{id}','BrandController@updateBrand');
+Route::post('deleteBrand','BrandController@delete');
 //Route::controllers([
 //	'auth' => 'Auth\AuthController',
 //	'password' => 'Auth\PasswordController',
