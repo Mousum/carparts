@@ -12,6 +12,7 @@ class Brand extends Model {
     protected $primaryKey = 'brand_id';
 
     public function CheckLogin($input) {
+
         $user = AdminModel::where('user_name', '=', $input['username'])
                 ->where('password', '=', md5($input['password']))
                 ->get();

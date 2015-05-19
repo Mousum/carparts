@@ -32,9 +32,12 @@ Route::get('logout','LoginController@logout');
 
 
 //Brand
-
-Route::get('createbrand','BrandController@createBrand');
+Route::get('brands','BrandController@Index');
+Route::get('brands/create','BrandController@createBrand');
+Route::get('brands/edit/{id}','BrandController@editBrand');
 Route::post('savebrand','BrandController@saveBrand');
+Route::post('updateBrand/{id}','BrandController@updateBrand');
+Route::post('deleteBrand','BrandController@delete');
 //Route::controllers([
 //	'auth' => 'Auth\AuthController',
 //	'password' => 'Auth\PasswordController',
@@ -49,6 +52,7 @@ Route::get('managemodel','ModelController@manage');
 Route::get('deletemodel/{id}','ModelController@delete');
 Route::get('editmodel/{id}','ModelController@edit');
 Route::post('updatemodel/{id}','ModelController@update');
+
 
 
 

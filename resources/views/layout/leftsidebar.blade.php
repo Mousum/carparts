@@ -46,6 +46,19 @@
                                 </ul>
                             </div>
                         </li>
+                          <li>
+                            <a href="#sidebar-discover-brand" class="glyphicons glyphicons-filetype" data-toggle="sidebar-discover"><i></i><span>Brand</span></a>
+                            <div id="sidebar-discover-brand" class="sidebar-discover-menu">
+                                <div class="innerAll text-center border-bottom text-muted-dark">
+                                    <strong>Brand</strong>
+                                    <button class="btn btn-xs btn-default close-discover"><i class="fa fa-fw fa-times"></i></button>
+                                </div>
+                                <ul class="animated fadeIn">
+                                    <li><a href="{{URL::to('/brands')}}"><i class="fa fa-asterisk"></i> Manage Brand</a></li>
+                                    <li><a href="{{URL::to('/brands/create')}}"><i class="fa fa-pencil"></i>Create Brand</a></li>
+                                </ul>
+                            </div>
+                        </li>
 
 <!--                        <li>
                             <a href="#sidebar-discover-courses" class="glyphicons crown" data-toggle="sidebar-discover"><i></i><span>Learning</span></a>
