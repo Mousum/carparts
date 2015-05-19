@@ -49,3 +49,12 @@ Route::get('managemodel','ModelController@manage');
 Route::get('deletemodel/{id}','ModelController@delete');
 Route::get('editmodel/{id}','ModelController@edit');
 Route::post('updatemodel/{id}','ModelController@update');
+
+
+
+//Sub Department
+Route::get('createsubdepartment','SubDepartmentController@createSubDepartment');
+Route::post('savesubdepartment','SubDepartmentController@saveSubDepartment');
+Route::get('managesubdepartment','SubDepartmentController@manage');
+Route::get('editsubdepartment/{id}','SubDepartmentController@edit');
+Route::post('updatesubdepartment/{id}','SubDepartmentController@update');
