@@ -3,7 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/xampp-new/htdocs/carparts/db/carparts.sql</file>
+            <file>file:/D:/xampp-new/htdocs/carparts/app/Http/Controllers/DepartmentsController.php</file>
+            <file>file:/D:/xampp-new/htdocs/carparts/app/Http/Controllers/AdminController.php</file>
+            <file>file:/D:/xampp-new/htdocs/carparts/resources/views/Dept/Create.blade.php</file>
+            <file>file:/D:/xampp-new/htdocs/carparts/app/Models/Moodel.php</file>
         </group>
     </open-files>
 </project-private>

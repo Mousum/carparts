@@ -81,12 +81,16 @@ CREATE TABLE IF NOT EXISTS `content_image` (
 --
 
 CREATE TABLE IF NOT EXISTS `department` (
-  `department_id` int(10) NOT NULL,
+  `department_id` int(10) NOT NULL AUTO_INCREMENT,
   `department_name` varchar(20) NOT NULL,
   `department_description` varchar(100) NOT NULL,
+  `department_image` varchar(100) NOT NULL,
   `model_id` int(10) NOT NULL,
   `brand_id` int(10) NOT NULL,
-  `engine_id` int(10) NOT NULL
+  `engine_id` int(10) NOT NULL,
+  `create_date` int(11) NOT NULL,
+  `update_date` int(11) NOT NULL,
+   PRIMARY KEY (`department_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------

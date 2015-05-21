@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use \Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Input;
 use \App\Models\AdminModel;
@@ -80,14 +78,16 @@ class BrandController extends AdminBaseController {
             Input::file('logo')->move($destinationPath, $fileName);
             $brand->brand_logo = $destinationPath . '/' . $fileName;
         }
+        $brand->update_date = time();
         if ($brand->save()) {
             Session::flash('success', 'Brand updated Successfully');
             return redirect('/brands');
         }
     }
-     public function delete() {
-       $id = Input::get('id');
-       $brand = Brand::find($id);
+
+    public function delete() {
+        $id = Input::get('id');
+        $brand = Brand::find($id);
 
         if ($brand->delete()) {
 
