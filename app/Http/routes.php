@@ -53,9 +53,21 @@ Route::get('deletemodel/{id}','ModelController@delete');
 Route::get('editmodel/{id}','ModelController@edit');
 Route::post('updatemodel/{id}','ModelController@update');
 
+<<<<<<< HEAD
 //Department
 Route::get('Depts','DepartmentsController@Index');
 Route::get('Dept/Create','DepartmentsController@Create');
 Route::Post('savedept','DepartmentsController@savedept');
 Route::Post('GetModelByBrand','DepartmentsController@GetModelByBrand');
 Route::Post('GetEngineByModel','DepartmentsController@GetEngineByModel');
+=======
+
+
+
+//Sub Department
+Route::get('createsubdepartment','SubDepartmentController@createSubDepartment');
+Route::post('savesubdepartment','SubDepartmentController@saveSubDepartment');
+Route::get('managesubdepartment','SubDepartmentController@manage');
+Route::get('editsubdepartment/{id}','SubDepartmentController@edit');
+Route::post('updatesubdepartment/{id}','SubDepartmentController@update');
+>>>>>>> 9605942c44927b0453d55f8fcd5895acdb2491c0
