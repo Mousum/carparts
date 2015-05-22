@@ -94,7 +94,7 @@ $(document).ready(function () {
 $(".delete").click(function(){
     var id =$(this).attr('data-id');
      $.ajax({
-            url: $("#base_url").val() + "/",
+            url: $("#base_url").val() + "/DeleteDepartment",
             type: 'POST',
             data: {id: id},
             dataType:'html',

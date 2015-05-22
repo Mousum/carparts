@@ -4,9 +4,13 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/xampp-new/htdocs/carparts/app/Http/Controllers/DepartmentsController.php</file>
-            <file>file:/D:/xampp-new/htdocs/carparts/app/Http/Controllers/AdminController.php</file>
+            <file>file:/D:/xampp-new/htdocs/carparts/app/Models/Department.php</file>
+            <file>file:/D:/xampp-new/htdocs/carparts/app/Models/Engine.php</file>
+            <file>file:/D:/xampp-new/htdocs/carparts/app/Http/Controllers/BrandController.php</file>
+            <file>file:/D:/xampp-new/htdocs/carparts/resources/views/Dept/Index.blade.php</file>
             <file>file:/D:/xampp-new/htdocs/carparts/resources/views/Dept/Create.blade.php</file>
-            <file>file:/D:/xampp-new/htdocs/carparts/app/Models/Moodel.php</file>
+            <file>file:/D:/xampp-new/htdocs/carparts/app/Http/routes.php</file>
+            <file>file:/D:/xampp-new/htdocs/carparts/app/Models/Brand.php</file>
         </group>
     </open-files>
 </project-private>

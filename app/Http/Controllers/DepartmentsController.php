@@ -27,9 +27,9 @@ class DepartmentsController extends AdminBaseController {
     }
 
     public function Index() {
-         $Dept =new Department();
-         $data = $Dept->getAllDepartment();
-     
+        $Dept = new Department();
+        $data = $Dept->getAllDepartment();
+
         return view('Dept.Index')->with('depts', $data);
     }
 
@@ -43,7 +43,7 @@ class DepartmentsController extends AdminBaseController {
     public function savedept() {
         $destinationPath = 'uploads/DeptImages'; // upload path
         $extension = Input::file('logo')->getClientOriginalExtension(); // getting image extension
-        $fileName = Input::get('d_name') . '.' . $extension; // renameing image
+        $fileName =  str_replace(' ', '',Input::get('d_name')) . '.' . $extension; // renameing image
         Input::file('logo')->move($destinationPath, $fileName); // uploading file to given path
         $newDept = new Department();
         $newDept->department_name = Input::get('d_name');
@@ -93,6 +93,23 @@ class DepartmentsController extends AdminBaseController {
         }
 
         return json_encode(array("engines" => $var));
+    }
+
+    public function DeleteDepartment() {
+        $id = Input::get('id');
+        $dept = Department::find($id);
+
+        if ($dept->delete()) {
+
+            return "Success";
+        }
+    }
+
+    public function edit($id) {
+        $brandData = Brand::all();
+       
+        $dept = Department::find($id);
+        return view('Dept.Edit')->with('item', $dept)->with("brands",$brandData);
     }
 
 }

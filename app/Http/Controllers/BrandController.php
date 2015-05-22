@@ -46,7 +46,7 @@ class BrandController extends AdminBaseController {
 
         $destinationPath = 'uploads/BrandLogos'; // upload path
         $extension = Input::file('logo')->getClientOriginalExtension(); // getting image extension
-        $fileName = Input::get('brand_name') . '.' . $extension; // renameing image
+        $fileName = str_replace(' ', '', Input::get('brand_name')) . '.' . $extension; // renameing image
         Input::file('logo')->move($destinationPath, $fileName); // uploading file to given path
 
         $newBrand = new Brand();
@@ -74,7 +74,7 @@ class BrandController extends AdminBaseController {
         if (Input::file('logo')) {
             $destinationPath = 'uploads/BrandLogos'; // upload path
             $extension = Input::file('logo')->getClientOriginalExtension(); // getting image extension
-            $fileName = $brand->brand_name . '.' . $extension; // renameing image
+            $fileName = str_replace(' ', '', $brand->brand_name) . '.' . $extension; // renameing image
             Input::file('logo')->move($destinationPath, $fileName);
             $brand->brand_logo = $destinationPath . '/' . $fileName;
         }

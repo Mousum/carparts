@@ -60,6 +60,8 @@ Route::get('Dept/Create','DepartmentsController@Create');
 Route::Post('savedept','DepartmentsController@savedept');
 Route::Post('GetModelByBrand','DepartmentsController@GetModelByBrand');
 Route::Post('GetEngineByModel','DepartmentsController@GetEngineByModel');
+Route::Post('DeleteDepartment','DepartmentsController@DeleteDepartment');
+Route::get('dept/edit/{id}','DepartmentsController@edit');
 
 
 
