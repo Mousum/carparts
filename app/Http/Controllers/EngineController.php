@@ -68,31 +68,35 @@ class EngineController extends AdminBaseController
 
     public function edit($id)
     {
-        $model = Moodel::find($id);
-        $brands = Brand::all();
-        return view('model.editmodel')->with('model', $model)->with('brands',$brands);
+        $engine = Engine::find($id);
+        $models = Moodel::all();
+        return view('engine.editengine')->with('engine', $engine)->with('models',$models);
     }
     public function update($id) {
 
-        $model = Moodel::find($id);
+        $engine = Engine::find($id);
         $name = Input::get('name');
-        $brand = Input::get('brand');
-        $model->model_name = $name;
-        $model->brand_id=$brand;
+        $engine_description = Input::get('description');
+        $engine_power = Input::get('power');
+        $model_id = Input::get('model');
+        $engine->engine_name = $name;
+        $engine->engine_description=$engine_description;
+        $engine->engine_power = $engine_power;
+        $engine->model_id = $model_id;
 
-        if ($model->save()) {
-            return redirect('/managemodel');
+        if ($engine->save()) {
+            return redirect('/manageengine');
         }
     }
 
     public function delete($id)
     {
 
-        $model = Moodel::find($id);
+        $engine = Engine::find($id);
 
-        if ($model->delete()) {
+        if ($engine->delete()) {
 
-            return redirect('/managemodel');
+            return redirect('/manageengine');
         }
     }
 
