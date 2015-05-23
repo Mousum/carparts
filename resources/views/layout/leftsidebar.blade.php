@@ -34,6 +34,19 @@
                             </div>
                         </li>
                         <li>
+                            <a href="#sidebar-discover-brand" class="glyphicons envelope" data-toggle="sidebar-discover"><i></i><span>Brand</span></a>
+                            <div id="sidebar-discover-brand" class="sidebar-discover-menu">
+                                <div class="innerAll text-center border-bottom text-muted-dark">
+                                    <strong>Brand</strong>
+                                    <button class="btn btn-xs btn-default close-discover"><i class="fa fa-fw fa-times"></i></button>
+                                </div>
+                                <ul class="animated fadeIn">
+                                    <li><a href="{{URL::to('/brands')}}"><i class="fa fa-asterisk"></i> Manage Brand</a></li>
+                                    <li><a href="{{URL::to('/brands/create')}}"><i class="fa fa-pencil"></i>Create Brand</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
                             <a href="#sidebar-discover-email" class="glyphicons envelope" data-toggle="sidebar-discover"><i></i><span>Model</span></a>
                             <div id="sidebar-discover-email" class="sidebar-discover-menu">
                                 <div class="innerAll text-center border-bottom text-muted-dark">
@@ -46,19 +59,21 @@
                                 </ul>
                             </div>
                         </li>
-                          <li>
-                            <a href="#sidebar-discover-brand" class="glyphicons glyphicons-filetype" data-toggle="sidebar-discover"><i></i><span>Brand</span></a>
-                            <div id="sidebar-discover-brand" class="sidebar-discover-menu">
+
+                        <li>
+                            <a href="#sidebar-discover-sub" class="glyphicons envelope" data-toggle="sidebar-discover"><i></i><span>Sub-Department</span></a>
+                            <div id="sidebar-discover-sub" class="sidebar-discover-menu">
                                 <div class="innerAll text-center border-bottom text-muted-dark">
-                                    <strong>Brand</strong>
+                                    <strong>Sub-Department</strong>
                                     <button class="btn btn-xs btn-default close-discover"><i class="fa fa-fw fa-times"></i></button>
                                 </div>
                                 <ul class="animated fadeIn">
-                                    <li><a href="{{URL::to('/brands')}}"><i class="fa fa-asterisk"></i> Manage Brand</a></li>
-                                    <li><a href="{{URL::to('/brands/create')}}"><i class="fa fa-pencil"></i>Create Brand</a></li>
+                                    <li><a href="{{URL::to('/createsubdepartment')}}"><i class="fa fa-envelope"></i> Add </a></li>
+                                    <li><a href="{{URL::to('/managesubdepartment')}}"><i class="fa fa-pencil"></i> Manage </a></li>
                                 </ul>
                             </div>
                         </li>
+
 
 <!--                        <li>
                             <a href="#sidebar-discover-courses" class="glyphicons crown" data-toggle="sidebar-discover"><i></i><span>Learning</span></a>
