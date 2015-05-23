@@ -1,37 +1,56 @@
 @extends('layout.master')
 @section('content')
-<h2 class="margin-none">Edit Model &nbsp;<i class="fa fa-fw fa-pencil text-muted"></i></h2>
+<h2 class="margin-none">Edit Engine &nbsp;<i class="fa fa-fw fa-pencil text-muted"></i></h2>
 
 <div class="separator-h"></div>
 
 <div class="row">
-    <form method="post" action="{{URL::to('/updatemodel').'/'.$model['model_id']}}" >
+    <form method="post" action="{{URL::to('/updateengine').'/'.$engine['engine_id']}}" >
         <div class="col-md-6">
             <div class="widget widget-heading-simple widget-body-white">
 
                 <!-- Widget heading -->
                 <div class="widget-head">
-                    <h4 class="heading">Model Name</h4>
+                    <h4 class="heading">Engine Name</h4>
                 </div>
                 <!-- // Widget heading END -->
 
                 <div class="widget-body">
-                    <input type="text" name="name" placeholder="Model name" value="{{$model['model_name']}}" class="form-control">
+                    <input type="text" name="name" placeholder="Model name" value="{{$engine['engine_name']}}" class="form-control">
                 </div>
 
-                
                 <div class="widget-head">
-                    <h4 class="heading">Brand </h4>
+                    <h4 class="heading">Engine Description</h4>
                 </div>
                 <!-- // Widget heading END -->
 
                 <div class="widget-body">
-                    <select name="brand" class="form-control">
-                        @foreach($brands as $brand)
-                            @if($model['brand_id']==$brand['brand_id'])
-                                <option value="{{$brand['brand_id']}}" selected="selected">{{$brand['brand_name']}}</option>
+                    <input type="text" name="description" placeholder="Engine description" value="{{$engine['engine_description']}}" class="form-control" style="color:black !important;">
+                </div>
+
+                <!-- Widget heading -->
+                <div class="widget-head">
+                    <h4 class="heading">Engine Power</h4>
+                </div>
+                <!-- // Widget heading END -->
+
+                <div class="widget-body">
+                    <input type="text" name="power" placeholder="Engine Power" class="form-control" value="{{$engine['engine_power']}}" style="color:black !important;">
+                </div>
+
+
+                <div class="widget-head">
+                    <h4 class="heading">Model </h4>
+                </div>
+                <!-- // Widget heading END -->
+
+                <div class="widget-body">
+                    <select name="model" class="form-control">
+                        @foreach($models as $model)
+                            @if($model['model_id']==$engine['model_id'])
+                            <option value="{{$model['model_id']}}" selected="selected">{{$model['model_name']}}</option>
                             @else
-                                    <option value="{{$brand['brand_id']}}">{{$brand['brand_name']}}</option>
+                            <option value="{{$model['model_id']}}">{{$model['model_name']}}</option>
                             @endif
                         @endforeach
                     </select>

@@ -1,7 +1,7 @@
 
 @extends('layout.master')
 @section('content')
-<h2 class="margin-none">Manage Model &nbsp;<i class="fa fa-fw fa-pencil text-muted"></i><a href="{{URL::to('/createadmin/')}}" style="float:right; margin-bottom: 20px;" class="btn btn-inverse">Add Admin</a></h2>
+<h2 class="margin-none">Manage Engine &nbsp;<i class="fa fa-fw fa-pencil text-muted"></i><a href="{{URL::to('/createadmin/')}}" style="float:right; margin-bottom: 20px;" class="btn btn-inverse">Add Admin</a></h2>
 
 <div class="separator-h"></div>
 
@@ -27,7 +27,7 @@
                             <td>{{$cat['engine_description']}} </td>
                             <td>{{$cat['engine_power']}} </td>
                             <td>
-                                <a href="{{URL::to('/editmodel/').'/'.$ct}}" title="Edit" class="btn btn-circle btn-success"><i class="icon-compose"></i></a>
+                                <a href="{{URL::to('/editengine/').'/'.$ct}}" title="Edit" class="btn btn-circle btn-success"><i class="icon-compose"></i></a>
 
                                  <a onclick="myfunction('{{$ct}}');" title="Delete" class="btn btn-circle btn-danger"><i class="fa fa-trash-o"></i></a>
 
@@ -57,47 +57,12 @@
                                     });
 </script>
 <script>
-    function block_admin(id)
-    {
-        $.ajax({
-            url: $("#base_url").val() + "/blockadmin",
-            type: 'POST',
-            data: {id: id},
-            dataType:'json',
-            success: function(result) {
-                if (result.status)
-                {
-                    $('#status_'+id).html('Block');
-                    $('#block_admin_' + id).hide();
-                    $('#unblock_admin_' + id).show();
-                }
-            }
-        });
-    }
-    function unblock_admin(id)
-    {
-        $.ajax({
-            url: $("#base_url").val() + "/unblockadmin",
-            type: 'POST',
-            data: {id: id},
-            dataType:'json',
-            success: function(result) {
-                if (result.status)
-                {
-                   $('#status_'+id).html('Active');
-                    $('#unblock_admin_' + id).hide();
-                    $('#block_admin_' + id).show();
-                }
 
-
-            }
-        });
-    }
     function myfunction(id) {
 
         if (confirm("Do you want to delete this item?") == true) {
 
-            window.location.href = $('#base_url').val() + "/deletemodel/" + id;
+            window.location.href = $('#base_url').val() + "/deleteengine/" + id;
         } else {
             return false;
         }
