@@ -53,6 +53,9 @@ Route::get('deletemodel/{id}','ModelController@delete');
 Route::get('editmodel/{id}','ModelController@edit');
 Route::post('updatemodel/{id}','ModelController@update');
 
+// Engine
+Route::get('createengine','EngineController@createEngine');
+Route::post('saveengine','EngineController@saveEngine');
 
 //Department
 Route::get('Depts','DepartmentsController@Index');
