@@ -59,9 +59,11 @@ class EngineController extends AdminBaseController
 
     public function manage()
     {
-        $data = new Moodel();
-        $models = $data->getAllModels();
-        return view('model.managemodel')->with('models', $models);
+        $data = new Engine();
+
+        $engines= $data->getAllEngine();
+
+        return view('engine.manageengine')->with('engines', $engines);
     }
 
     public function edit($id)

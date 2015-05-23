@@ -12,19 +12,20 @@
                 <table class="display" cellspacing="0" width="100%" id="myTable">
                     <thead class="bg-gray">
                     <th>Id</th>
-                    <th>Model name</th>
-                    <th>Brand</th>
-                    <th>Create Date</th>
+                    <th>Engine name</th>
+                    <th>Model</th>
+                    <th>Description</th>
+                    <th>Power</th>
                     <th>Action</th>
                     </thead>
                     <tbody>
-                        @foreach($models as $cat)
+                        @foreach($engines as $cat)
                         <tr>
-                            <td>{{$ct= $cat['model_id']}} </td>
-                            <td>{{$cat['model_name']}} </td>
-                            <td>{{$cat['brand_name']}}</td>
-                            <td>{{date("Y-m-d H:i:s",$cat['create_date'])}} </td>
-
+                            <td>{{$ct= $cat['engine_id']}} </td>
+                            <td>{{$cat['engine_name']}} </td>
+                            <td>{{$cat['model_name']}}</td>
+                            <td>{{$cat['engine_description']}} </td>
+                            <td>{{$cat['engine_power']}} </td>
                             <td>
                                 <a href="{{URL::to('/editmodel/').'/'.$ct}}" title="Edit" class="btn btn-circle btn-success"><i class="icon-compose"></i></a>
 

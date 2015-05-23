@@ -27,5 +27,11 @@ class Engine extends Model {
                 ->get();
         return $data;
     }
+    public function getAllEngine(){
+        $data = Engine::join('model', 'engine.model_id', '=', 'model.model_id')
+            ->select('engine.*', 'model.model_name')
+            ->get();
+        return $data;
+    }
 
 }
