@@ -28,8 +28,10 @@ class DepartmentsController extends AdminBaseController {
 
     public function Index() {
         $Dept = new Department();
-        $data = $Dept->getAllDepartment();
-
+        $data = Department::all();//$Dept->getAllDepartment();
+//        echo "<pre>";
+//        print_r($data);
+//        die();
         return view('Dept.Index')->with('depts', $data);
     }
 
@@ -43,15 +45,15 @@ class DepartmentsController extends AdminBaseController {
     public function savedept() {
         $destinationPath = 'uploads/DeptImages'; // upload path
         $extension = Input::file('logo')->getClientOriginalExtension(); // getting image extension
-        $fileName =  str_replace(' ', '',Input::get('d_name')) . '.' . $extension; // renameing image
+        $fileName = str_replace(' ', '', Input::get('d_name')) . '.' . $extension; // renameing image
         Input::file('logo')->move($destinationPath, $fileName); // uploading file to given path
         $newDept = new Department();
         $newDept->department_name = Input::get('d_name');
         $newDept->department_description = Input::get('d_des');
         $newDept->department_image = $destinationPath . '/' . $fileName;
-        $newDept->model_id = Input::get('m_name');
-        $newDept->brand_id = Input::get('b_name');
-        $newDept->engine_id = Input::get('engine');
+        $newDept->model_id = 0;
+        $newDept->brand_id = 0;
+        $newDept->engine_id = 0;
         $newDept->create_date = time();
         $newDept->update_date = time();
         if ($newDept->save()) {
@@ -107,9 +109,32 @@ class DepartmentsController extends AdminBaseController {
 
     public function edit($id) {
         $brandData = Brand::all();
-       
+
         $dept = Department::find($id);
-        return view('Dept.Edit')->with('item', $dept)->with("brands",$brandData);
+        return view('Dept.Edit')->with('item', $dept)->with("brands", $brandData);
+    }
+
+    public function updatedept() {
+        $id = Input::get('id');
+        $dept = Department::find($id);
+        if (Input::get('d_name') != "") {
+            $dept->department_name = Input::get('d_name');
+        }
+        if (Input::file('logo')) {
+            $destinationPath = 'uploads/DeptImages'; // upload path
+            $extension = Input::file('logo')->getClientOriginalExtension(); // getting image extension
+            $fileName = str_replace(' ', '', $dept->department_name) . '.' . $extension; // renameing image
+            Input::file('logo')->move($destinationPath, $fileName); // uploading file to given path
+            $dept->department_image = $destinationPath . '/' . $fileName;
+        }
+        if (Input::get('d_des') != "") {
+            $dept->department_description = Input::get('d_des');
+        }
+        $dept->update_date = time();
+        if ($dept->save()) {
+            Session::flash('success', 'Department updated Successfully');
+            return redirect('/Depts');
+        }
     }
 
 }

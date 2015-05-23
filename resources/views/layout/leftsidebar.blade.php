@@ -73,6 +73,19 @@
                             </div>
                         </li>
                         <li>
+                            <a href="#sidebar-discover-department" class="glyphicons envelope" data-toggle="sidebar-discover"><i></i><span>Departments</span></a>
+                            <div id="sidebar-discover-department" class="sidebar-discover-menu">
+                                <div class="innerAll text-center border-bottom text-muted-dark">
+                                    <strong>Departments</strong>
+                                    <button class="btn btn-xs btn-default close-discover"><i class="fa fa-fw fa-times"></i></button>
+                                </div>
+                                <ul class="animated fadeIn">
+                                    <li><a href="{{URL::to('dept/create')}}"><i class="fa fa-envelope"></i> Add Department</a></li>
+                                    <li><a href="{{URL::to('depts')}}"><i class="fa fa-pencil"></i> Manage Department</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
                             <a href="#sidebar-discover-sub" class="glyphicons envelope" data-toggle="sidebar-discover"><i></i><span>Sub-Department</span></a>
                             <div id="sidebar-discover-sub" class="sidebar-discover-menu">
                                 <div class="innerAll text-center border-bottom text-muted-dark">

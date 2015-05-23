@@ -2,7 +2,7 @@
 
 @extends('layout.master')
 @section('content')
-<h2 class="margin-none">All Brands &nbsp;<i class="fa fa-fw fa-pencil text-muted"></i><a href="{{URL::to('brands/create')}}" style="float:right; margin-bottom: 20px;" class="btn btn-inverse">Add Brand</a></h2>
+<h2 class="margin-none">All Departments &nbsp;<i class="fa fa-fw fa-pencil text-muted"></i><a href="{{URL::to('dept/create')}}" style="float:right; margin-bottom: 20px;" class="btn btn-inverse">Add Department</a></h2>
 
 <div class="separator-h"></div>
 @if(Session::has('success'))
@@ -20,9 +20,10 @@
                     <th>#</th>
                     <th>Logo</th>
                     <th>Department Name</th>
-                    <th>Brand Name</th>
+                    <th>Department Descriptions</th>
+<!--                    <th>Brand Name</th>
                     <th>Model Name</th>
-                    <th>Engine Name</th>
+                    <th>Engine Name</th>-->
                     <th>Action</th>
                     </thead>
                     <tbody>
@@ -32,19 +33,42 @@
                             <td><?php echo ++$i;?> </td>
                             <td><img src="{{$item['department_image']}}" alt="{{$item['department_name']}}" height="42" width="42"></td>
                             <td>{{$item['department_name']}} </td>
+                            <td>{{substr($item['department_description'], 0, 50)}}   <a href="javascript:void(0);"  data-toggle="modal" data-target="#detModal{{$item['department_id']}}">read more.. </a></td>
                             
-                            <td>{{$item['brand_name']}} </td>
+<!--                            <td>{{$item['brand_name']}} </td>
                             <td>{{$item['model_name']}} </td>
-                            <td>{{$item['engine_name']}} </td>
+                            <td>{{$item['engine_name']}} </td>-->
 
                             <td>
                                 <a href="{{URL::to('dept/edit/').'/'.$item['department_id']}}" title="Edit" class="btn btn-circle btn-success"><i class="icon-compose"></i></a>
 
                                 <!-- Trigger the modal with a button -->
-                                <button type="button" class="btn btn-circle btn-danger" data-toggle="modal" data-target="#delModal{{$item['department_id']}}"><i class="icon-trash-can"></button>
+                                <button type="button" class="btn btn-circle btn-danger" data-toggle="modal" data-target="#delModal{{$item['department_id']}}"><i class="fa fa-trash-o"></i></button>
+                               
 
 
 
+                                <!-- Modal -->
+                                <div id="detModal{{$item['department_id']}}" class="modal fade" role="dialog">
+                                    <div class="modal-dialog">
+
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">{{$item['department_name']}} Description</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                              {{$item['department_description']}}
+                                            </div>
+                                            <div class="modal-footer">
+                                               
+                                                <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
                                 <!-- Modal -->
                                 <div id="delModal{{$item['department_id']}}" class="modal fade" role="dialog">
                                     <div class="modal-dialog">
@@ -53,7 +77,7 @@
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                <h4 class="modal-title">Delete Confirmation</h4>
+                                                <h4 class="modal-title"></h4>
                                             </div>
                                             <div class="modal-body">
                                                 <p>Are You Sure Want To Delete {{$item['department_name']}} Department?<br/>Click "Delete" To Continue. </p>
