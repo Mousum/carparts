@@ -1,7 +1,7 @@
 
 @extends('layout.master')
 @section('content')
-<h2 class="margin-none">Manage Model &nbsp;<i class="fa fa-fw fa-pencil text-muted"></i><a href="{{URL::to('/createadmin/')}}" style="float:right; margin-bottom: 20px;" class="btn btn-inverse">Add Admin</a></h2>
+<h2 class="margin-none">Manage Model &nbsp;<i class="fa fa-fw fa-pencil text-muted"></i><a href="{{URL::to('/createModel/')}}" style="float:right; margin-bottom: 20px;" class="btn btn-inverse">Add Admin</a></h2>
 
 <div class="separator-h"></div>
 
