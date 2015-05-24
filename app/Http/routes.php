@@ -81,4 +81,5 @@ Route::get('managesubdepartment','SubDepartmentController@manage');
 Route::get('editsubdepartment/{id}','SubDepartmentController@edit');
 Route::get('updatesubdepartment/{id}','SubDepartmentController@update');
 
-
+//events
+Route::get('events/create','EventsController@create');

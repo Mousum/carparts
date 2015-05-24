@@ -29,9 +29,7 @@ class DepartmentsController extends AdminBaseController {
     public function Index() {
         $Dept = new Department();
         $data = Department::all();//$Dept->getAllDepartment();
-//        echo "<pre>";
-//        print_r($data);
-//        die();
+
         return view('Dept.Index')->with('depts', $data);
     }
 
