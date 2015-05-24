@@ -186,7 +186,7 @@
                 $("#msg").show("slow");
                 return false;
             }
-            else if (ftype !== 'image/png' && ftype !== 'image/gif' && ftype === 'image/jpeg')
+            else if (ftype !== 'image/png' && ftype !== 'image/gif' && ftype === 'image/jpeg' && ftype === 'image/jpg'
             {
                 $("#logo").css("border-color", "#cc3a3a");
                 $("#logo").focus();

@@ -58,7 +58,7 @@ class DepartmentsController extends AdminBaseController {
         $newDept->update_date = time();
         if ($newDept->save()) {
             Session::flash('success', 'Department created Successfully');
-            return redirect('/Depts');
+            return redirect('/depts');
         }
     }
 
@@ -133,7 +133,7 @@ class DepartmentsController extends AdminBaseController {
         $dept->update_date = time();
         if ($dept->save()) {
             Session::flash('success', 'Department updated Successfully');
-            return redirect('/Depts');
+            return redirect('/depts');
         }
     }
 
