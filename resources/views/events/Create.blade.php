@@ -1,10 +1,21 @@
 @extends('layout.master')
 @section('content')
+<link rel="stylesheet" href="{{URL::to('resources/assets/datetime/css/bootstrap-datetimepicker.min.css')}}" />
+<script src="{{URL::to('resources/assets/datetime/js/bootstrap-datetimepicker.min.js')}}"></script>
 <h2 class="margin-none">Create Event &nbsp;<i class="fa fa-fw fa-pencil text-muted"></i></h2>
 
 <div class="separator-h"></div>
 <div id="msg" style="display: none;"></div>
 <div class="row">
+
+    <script type="text/javascript">
+        $(function() {
+            $('#datetimepicker2').datetimepicker({
+                language: 'en',
+                pick12HourFormat: true
+            });
+        });
+    </script>
 
     <form method="post" action="{{URL::to('/events/add')}}" enctype="multipart/form-data" >
         <div class="col-md-6">
@@ -13,25 +24,32 @@
                     <h4 class="heading">Event Name</h4>
                 </div>
                 <div class="widget-body">
-                    <input type="text" name="events_name" id="" placeholder="Event Name" class="form-control" style="color:black !important;">
+                    <input type="text" name="event_name" id="" placeholder="Event Name" class="form-control" style="color:black !important;">
                 </div>
                 <div class="widget-head">
                     <h4 class="heading">Event Date</h4>
                 </div>
                 <div class="widget-body">
-                 <input type="text" name="events_date" id="" placeholder="Event date" class="form-control" style="color:black !important;">
+                    <div id="datetimepicker2" class="input-append">
+                        <input data-format="MM/dd/yyyy HH:mm:ss PP" type="text"name="events_date" id=""  class="form-control" style="color:black !important;"/>
+                        <span class="add-on">
+                            <i data-time-icon="icon-time" data-date-icon="icon-calendar" class="icon-calendar-2">
+                            </i>
+                        </span>
+                    </div>
+                 <!--<input type="text" name="events_date" id="" placeholder="Event date" class="form-control" style="color:black !important;">-->
                 </div>
                 <div class="widget-head">
                     <h4 class="heading">Event Location </h4>
                 </div>
                 <div class="widget-body">
-                 <input type="text" name="events_locations" id="b_name" placeholder="Location" class="form-control" style="color:black !important;">
+                    <input type="text" name="events_locations" id="b_name" placeholder="Location" class="form-control" style="color:black !important;">
                 </div>
                 <div class="widget-head">
                     <h4 class="heading">Event Description </h4>
                 </div>
                 <div class="widget-body">
-                    <textarea  class="form-control" style="color:black !important;margin: 0px -0.5px 0px 0px; width: 491px; height: 236px;"></textarea>
+                    <textarea  class="form-control" name="even_description" style="color:black !important;"></textarea>
                 </div>
             </div>
             <button id="save" class="btn btn-success"><i class="icon-add-symbol"></i> Save</button>
@@ -41,16 +59,25 @@
             <div class="widget-head">
                 <h4 class="heading">Event Images</h4>
             </div>
-            <div class="widget-body">
-                <input class="form-control" name="images[]"/>
-            </div>
+            <div class="widget-body" id="imgdiv">
+                <input type="file"  class="form-control file" multiple=true name="images[]"/>
 
+            </div>
+            <a href="javascript:void(0)" id="addmore" class="btn btn-success" data-role="button">Add More</a>
         </div>
 
     </form>
 
 </div>
-<script>
-   
+<script type="text/javascript">
+
+    $("#addmore").click(function() {
+        if ($(".file").last().val() !== "") {
+
+            var htmlStr = '<input type="file" class="form-control file" name="images[]"/>'
+            $("#imgdiv").append(htmlStr);
+        }
+
+    });
 </script>
 @stop

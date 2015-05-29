@@ -83,3 +83,4 @@ Route::get('updatesubdepartment/{id}','SubDepartmentController@update');
 
 //events
 Route::get('events/create','EventsController@create');
+Route::post('events/add','EventsController@addEvent');
