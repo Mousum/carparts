@@ -27,5 +27,8 @@ class EventsController extends AdminBaseController {
     public function create() {
         return view("events.Create");
     }
+    public function addEvent(){
+        
+    }
 
 }

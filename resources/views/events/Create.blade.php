@@ -37,6 +37,15 @@
             <button id="save" class="btn btn-success"><i class="icon-add-symbol"></i> Save</button>
             <button class="btn btn-danger"><i class="fa fa-trash-o"></i> Cancel</button>
         </div>
+        <div class="col-md-6">
+            <div class="widget-head">
+                <h4 class="heading">Event Images</h4>
+            </div>
+            <div class="widget-body">
+                <input class="form-control" name="images[]"/>
+            </div>
+
+        </div>
 
     </form>
 
