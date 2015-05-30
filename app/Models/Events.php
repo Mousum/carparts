@@ -17,6 +17,13 @@ class Events extends Model  {
     protected $table = 'event';
     public $timestamps = FALSE;
     protected $primaryKey = 'event_id';
+    
+    public function GetAllEvents(){
+         $data = Events::join('event_images', 'event.event_id', '=', 'event_images.event_id')
+                ->select('event.*', 'event_images.img_location')
+                ->get();
+        return $data;
+    }
 }
 
 ?>

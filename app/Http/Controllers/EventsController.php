@@ -25,16 +25,21 @@ class EventsController extends AdminBaseController {
     public function __construct() {
         parent::__construct();
     }
+    public function Index(){
+        $model = new Events();
+        $events = $model->GetAllEvents();
+//        echo "<pre>";
+//        print_r($events);
+//        die();
+         return view("events.Index")->with("events", $events);
+    }
 
     public function create() {
         return view("events.Create");
     }
 
     public function addEvent() {
-//        $files = Input::file('images');
-//        echo count($files);
-//        //print_r($files);
-//            die();
+
         $event = new Events();
         $event->event_name = Input::get('event_name');
         $event->event_time = strtotime(Input::get('events_date'));
@@ -43,21 +48,25 @@ class EventsController extends AdminBaseController {
         $event->create_date = time();
         if ($event->save()) {
             $files = Input::file('images');
-            $i=0;
-            
+            $fileCount = count($files);
+            $i = 0;
             foreach ($files as $file) {
                 $destinationPath = 'uploads/evenntImages'; // upload path
                 $extension = $file->getClientOriginalExtension(); // getting image extension
-                $fileName = str_replace(' ', '',$event->event_name)."_".++$i. '.' . $extension; // renameing image
+                $fileName = str_replace(' ', '', $event->event_name) . "_" . ++$i ."_".rand(0,100).'.' . $extension; // renameing image
                 $file->move($destinationPath, $fileName);
-                
+
                 $image = new EventImages();
-                
-                $image->event_id= $event->event_id;
-                $image->img_location= $destinationPath.'/'.$fileName;
-                
+
+                $image->event_id = $event->event_id;
+                $image->img_location = $destinationPath . '/' . $fileName;
+
                 $image->save();
-                
+            }
+
+            if ($i == $fileCount) {
+                Session::flash('success', 'Event created Successfully');
+                return redirect('/events');
             }
         }
     }
