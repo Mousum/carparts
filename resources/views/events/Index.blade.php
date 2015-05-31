@@ -89,7 +89,7 @@ $(document).ready(function () {
 $(".delete").click(function(){
     var id =$(this).attr('data-id');
      $.ajax({
-            url: $("#base_url").val() + "/deleteBrand",
+            url: $("#base_url").val() + "/events/delete",
             type: 'POST',
             data: {id: id},
             dataType:'html',
@@ -97,11 +97,11 @@ $(".delete").click(function(){
                 if (result=="Success")
                 {
                      $('.close').trigger('click');
-                        $("#del-msg").html(" <b class='alert-success'>Successfully Deleted!Loading New Data...</b>");
+                        $("#del-msg").html("Successfully Deleted!Loading New Data...");
                         $("#del-msg").show("slow");
                         setTimeout(function () {
                             location.reload();//will redirect to your blog page (an ex: blog.html)
-                        }, 2000);
+                        }, 3000);
                   
                    
                 }
