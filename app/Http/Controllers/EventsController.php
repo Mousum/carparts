@@ -32,7 +32,7 @@ class EventsController extends AdminBaseController {
 //        echo "<pre>";
 //        print_r($events);
 //        die();
-        return view("events.Index")->with("events",Events::all());
+        return view("events.Index")->with("events", Events::all());
     }
 
     public function create() {
@@ -75,10 +75,15 @@ class EventsController extends AdminBaseController {
     public function Edit($id) {
         $model = new Events();
         $event = $model->GetSingleEvent($id);
+        $event[0]['event_id']=$id;
+  
         return view("events.Edit")->with("event", $event);
     }
 
-    public function Update($id) {
+    public function Update() {
+      
+        $id = Input::get('id');
+        
         $files = Input::file('images');
         $event = Events::find($id);
         $event->event_name = Input::get('event_name');
@@ -101,24 +106,33 @@ class EventsController extends AdminBaseController {
                     $image->img_location = $destinationPath . '/' . $fileName;
 
                     $image->save();
+                    
                 }
+                
             }
+             Session::flash('success', 'Event Updated Successfully');
+                return redirect('/events');
         }
+        
     }
 
     public function deleteImage() {
         $id = Input::get('id');
         $img = EventImages::find($id);
-
-        if($img->delete()){
+        $loc = $img->img_location;
+        if ($img->delete()) {
+            // if(delete(URL::to('/'.$loc))){
             return "Success";
+            //}
         }
     }
+
     public function deleteEvent() {
         $id = Input::get('id');
         $event = Events::find($id);
 
-        if($event->delete()){
+        if ($event->delete()) {
+
             return "Success";
         }
     }

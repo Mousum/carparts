@@ -9,12 +9,12 @@
 <div class="row">
 
     <script type="text/javascript">
-        $(function() {
-            $('#datetimepicker2').datetimepicker({
-                language: 'en',
-                pick12HourFormat: true
-            });
-        });
+$(function () {
+    $('#datetimepicker2').datetimepicker({
+        language: 'en',
+        pick12HourFormat: true
+    });
+});
     </script>
 
     <form method="post" action="{{URL::to('/events/add')}}" enctype="multipart/form-data" >
@@ -52,8 +52,7 @@
                     <textarea  class="form-control" name="even_description" style="color:black !important;"></textarea>
                 </div>
             </div>
-            <button id="save" class="btn btn-success"><i class="icon-add-symbol"></i> Save</button>
-            <button class="btn btn-danger"><i class="fa fa-trash-o"></i> Cancel</button>
+
         </div>
         <div class="col-md-6">
             <div class="widget-head">
@@ -63,15 +62,20 @@
                 <input type="file"  class="form-control file" multiple=true name="images[]"/>
 
             </div>
-            <a href="javascript:void(0)" id="addmore" class="btn btn-success" data-role="button">Add More</a>
+            <div class="widget-body" >
+                <a href="javascript:void(0)" id="addmore" class="btn btn-success" data-role="button">Add More</a>
+            </div>
         </div>
-
+        <div class="col-md-8">
+            <button id="save" class="btn btn-success"><i class="icon-add-symbol"></i> Save</button>
+            <button class="btn btn-danger"><i class="fa fa-trash-o"></i> Cancel</button>
+        </div>
     </form>
 
 </div>
 <script type="text/javascript">
 
-    $("#addmore").click(function() {
+    $("#addmore").click(function () {
         if ($(".file").last().val() !== "") {
 
             var htmlStr = '<input type="file" class="form-control file" name="images[]"/>'

@@ -17,9 +17,9 @@ $(function () {
 });
     </script>
 
-    <form method="post" action="{{URL::to('/events/update/'.$event[0]['event_id'])}}" enctype="multipart/form-data" >
+    <form method="post" action="{{URL::to('/events/update/')}}" enctype="multipart/form-data" >
         <div class="col-md-6">
-
+            <input type="hidden" value="{{$event[0]['event_id']}}" name="id">
             <div class="widget widget-heading-simple widget-body-white">
                 <div class="widget-head">
                     <h4 class="heading">Event Name</h4>
@@ -55,8 +55,7 @@ $(function () {
                     <textarea  class="form-control" name = "even_description" style="color:black !important;">{{$event[0]['even_description']}}</textarea>
                 </div>
             </div>
-            <button id="save" class="btn btn-success"><i class="icon-add-symbol"></i> Save</button>
-            <button class="btn btn-danger"><i class="fa fa-trash-o"></i> Cancel</button>
+            
         </div>
         <div class="col-md-6">
             <div class="widget-head">
@@ -66,21 +65,30 @@ $(function () {
 
 
             @foreach($event as $item)
-            <div class="col-md-6">
+            @if($item['img_location']!="")
+            <div class="col-md-6 img" id="{{$item['img_id']}}">
                 <img class="Image" src = "{{URL::to('/'.$item['img_location'])}}"  width="180" height="150" />
 
                 <span class="close-btn"><a href="javascript:void(0)" class="cross" data-id="{{$item['img_id']}}">X</a></span>
 
             </div>
+            @endif
             @endforeach
 
-            <div class="widget-body" id="imgdiv">
-            </div>
+
             <div class="widget-body" id="imgdiv">
 
 
             </div>
-            <a href="javascript:void(0)" id="addmore" class="btn btn-success" data-role="button">Add More</a>
+            <div class="widget-body" >
+                <a href="javascript:void(0)" id="addmore" class="btn btn-success" data-role="button">Add More</a>
+
+            </div>
+
+        </div>
+         <div class="col-md-8">
+            <button id="save" class="btn btn-success"><i class="icon-add-symbol"></i> Save</button>
+            <button class="btn btn-danger"><i class="fa fa-trash-o"></i> Cancel</button>
         </div>
 </div>
 
@@ -126,18 +134,22 @@ $(function () {
             type: "POST",
             url: $("#base_url").val() + "/events/deleteImage",
             data: data,
-            
             success: function (data) {
-             if(data=="Success"){
-                 location.reload();
-             }
+                if (data == "Success") {
+                    // location.reload();
+                    $("#" + id).hide("slow");
+                }
 
 
             }
         });
     })
-    $(".Image").hover(function () {
-        $(".close-btn").show();
+    $(".img").hover(function () {
+
+        $(this).children(".close-btn").show();
+
+    }, function () {
+        $(this).find(".close-btn").hide();
     })
 </script>
 
