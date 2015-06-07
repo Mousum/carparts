@@ -5,7 +5,7 @@
 <h2 class="margin-none">Create Event &nbsp;<i class="fa fa-fw fa-pencil text-muted"></i></h2>
 
 <div class="separator-h"></div>
-<div id="msg" style="display: none;"></div>
+<div id="msg"  class=" alert alert-danger"style="display: none;"></div>
 <div class="row">
 
     <script type="text/javascript">
@@ -24,7 +24,7 @@ $(function () {
                     <h4 class="heading">Event Name</h4>
                 </div>
                 <div class="widget-body">
-                    <input type="text" name="event_name" id="" placeholder="Event Name" class="form-control" style="color:black !important;">
+                    <input type="text" name="event_name" id="event_name" placeholder="Event Name" class="form-control" style="color:black !important;">
                 </div>
                 <div class="widget-head">
                     <h4 class="heading">Event Date</h4>
@@ -83,5 +83,15 @@ $(function () {
         }
 
     });
+    $("#save").click(function () {
+        if ($("#event_name").val() === '')
+        {
+            $("#msg").text("Your Event Atleast Have A Name").show("slow");
+            $("#event_name").css('border-color', 'red');
+            return false;
+
+        }
+        return false;
+    })
 </script>
 @stop

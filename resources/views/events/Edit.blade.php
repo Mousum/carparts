@@ -55,7 +55,7 @@ $(function () {
                     <textarea  class="form-control" name = "even_description" style="color:black !important;">{{$event[0]['even_description']}}</textarea>
                 </div>
             </div>
-            
+
         </div>
         <div class="col-md-6">
             <div class="widget-head">
@@ -63,19 +63,20 @@ $(function () {
             </div>
 
 
+            <div class="widget-body">
+                @foreach($event as $item)
+                @if($item['img_location']!="")
+                <div class="col-md-6 img" id="{{$item['img_id']}}">
+                    <img class="Image" src = "{{URL::to('/'.$item['img_location'])}}"  width="180" height="150" />
 
-            @foreach($event as $item)
-            @if($item['img_location']!="")
-            <div class="col-md-6 img" id="{{$item['img_id']}}">
-                <img class="Image" src = "{{URL::to('/'.$item['img_location'])}}"  width="180" height="150" />
+                    <span class="close-btn"><a href="javascript:void(0)" class="cross" data-id="{{$item['img_id']}}">X</a></span>
 
-                <span class="close-btn"><a href="javascript:void(0)" class="cross" data-id="{{$item['img_id']}}">X</a></span>
-
+                </div>
+                @endif
+                @endforeach
             </div>
-            @endif
-            @endforeach
-
-
+        </div>
+        <div class="col-md-6">
             <div class="widget-body" id="imgdiv">
 
 
@@ -86,7 +87,7 @@ $(function () {
             </div>
 
         </div>
-         <div class="col-md-8">
+        <div class="col-md-8">
             <button id="save" class="btn btn-success"><i class="icon-add-symbol"></i> Save</button>
             <button class="btn btn-danger"><i class="fa fa-trash-o"></i> Cancel</button>
         </div>
