@@ -98,6 +98,19 @@
                                 </ul>
                             </div>
                         </li>
+                        <li>
+                            <a href="#sidebar-discover-event" class="glyphicons envelope" data-toggle="sidebar-discover"><i></i><span>Event</span></a>
+                            <div id="sidebar-discover-event" class="sidebar-discover-menu">
+                                <div class="innerAll text-center border-bottom text-muted-dark">
+                                    <strong>Event</strong>
+                                    <button class="btn btn-xs btn-default close-discover"><i class="fa fa-fw fa-times"></i></button>
+                                </div>
+                                <ul class="animated fadeIn">
+                                    <li><a href="{{URL::to('/events/create')}}"><i class="fa fa-envelope"></i> Add </a></li>
+                                    <li><a href="{{URL::to('/events')}}"><i class="fa fa-pencil"></i> Manage </a></li>
+                                </ul>
+                            </div>
+                        </li>
 
 
 <!--                        <li>
