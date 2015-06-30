@@ -83,3 +83,8 @@ Route::get('updatesubdepartment/{id}','SubDepartmentController@update');
 
 //events
 Route::get('events/create','EventsController@create');
+
+
+//Team
+Route::get('createmember','TeamController@createMember');
+Route::Post('savemember','TeamController@saveMember');
