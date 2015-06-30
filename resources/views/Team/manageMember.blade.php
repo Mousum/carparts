@@ -1,7 +1,7 @@
 
 @extends('layout.master')
 @section('content')
-<h2 class="margin-none">Manage Engine &nbsp;<i class="fa fa-fw fa-pencil text-muted"></i><a href="{{URL::to('/createEngine/')}}" style="float:right; margin-bottom: 20px;" class="btn btn-inverse">Add Admin</a></h2>
+<h2 class="margin-none">Manage Member &nbsp;<i class="fa fa-fw fa-pencil text-muted"></i><a href="{{URL::to('/createMember/')}}" style="float:right; margin-bottom: 20px;" class="btn btn-inverse">Add Admin</a></h2>
 
 <div class="separator-h"></div>
 
@@ -12,22 +12,26 @@
                 <table class="display" cellspacing="0" width="100%" id="myTable">
                     <thead class="bg-gray">
                     <th>Id</th>
-                    <th>Engine name</th>
-                    <th>Model</th>
-                    <th>Description</th>
-                    <th>Power</th>
+                    <th>Member name</th>
+                    <th>Email</th>
+                    <th>Facebook Link</th>
+                    <th>Twitter Link</th>
+                    <th>Linkdin Link</th>
+                    <th>Contact</th>
                     <th>Action</th>
                     </thead>
                     <tbody>
-                        @foreach($engines as $cat)
+                        @foreach($members as $cat)
                         <tr>
-                            <td>{{$ct= $cat['engine_id']}} </td>
-                            <td>{{$cat['engine_name']}} </td>
-                            <td>{{$cat['model_name']}}</td>
-                            <td>{{$cat['engine_description']}} </td>
-                            <td>{{$cat['engine_power']}} </td>
+                            <td>{{$ct= $cat['member_id']}} </td>
+                            <td>{{$cat['member_name']}} </td>
+                            <td>{{$cat['member_email']}}</td>
+                            <td>{{$cat['member_fb_link']}} </td>
+                            <td>{{$cat['member_twitter_link']}} </td>
+                            <td>{{$cat['member_linkdin_link']}} </td>
+                            <td>{{$cat['member_contact']}} </td>
                             <td>
-                                <a href="{{URL::to('/editengine/').'/'.$ct}}" title="Edit" class="btn btn-circle btn-success"><i class="icon-compose"></i></a>
+                                <a href="{{URL::to('/editmember/').'/'.$ct}}" title="Edit" class="btn btn-circle btn-success"><i class="icon-compose"></i></a>
 
                                  <a onclick="myfunction('{{$ct}}');" title="Delete" class="btn btn-circle btn-danger"><i class="fa fa-trash-o"></i></a>
 
@@ -62,7 +66,7 @@
 
         if (confirm("Do you want to delete this item?") == true) {
 
-            window.location.href = $('#base_url').val() + "/deleteengine/" + id;
+            window.location.href = $('#base_url').val() + "/deletemember/" + id;
         } else {
             return false;
         }

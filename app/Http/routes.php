@@ -94,6 +94,6 @@ Route::post('events/delete','EventsController@deleteEvent');
 //Team
 Route::get('createmember','TeamController@createMember');
 Route::Post('savemember','TeamController@saveMember');
-
+Route::get('managemember','TeamController@manage');
 
 

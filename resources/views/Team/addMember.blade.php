@@ -5,7 +5,7 @@
 <div class="separator-h"></div>
 
 <div class="row">
-    <form method="post" action="{{URL::to('/saveMember')}}" >
+    <form method="post" action="{{URL::to('/savemember')}}" enctype="multipart/form-data">
         <div class="col-md-6">
             <div class="widget widget-heading-simple widget-body-white">
 
@@ -67,14 +67,14 @@
                     <input type="text" name="contact" placeholder="Contact number" class="form-control" style="color:black !important;"/>
                 </div>
 
-                <div class="widget-head">
-                    <h4 class="heading">Member Description</h4>
-                </div>
-                <!-- // Widget heading END -->
+                {{--<div class="widget-head">--}}
+                    {{--<h4 class="heading">Member Description</h4>--}}
+                {{--</div>--}}
+                {{--<!-- // Widget heading END -->--}}
 
-                <div class="widget-body">
-                    <textarea name="description" cols="60" rows="20" ></textarea>
-                </div>
+                {{--<div class="widget-body">--}}
+                    {{--<textarea name="description" cols="60" rows="20" ></textarea>--}}
+                {{--</div>--}}
 
                 <div class="widget-head">
                     <h4 class="heading">Member Photo</h4>

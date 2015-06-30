@@ -1,30 +1,12 @@
 <?php namespace App\Http\Controllers;
 
-use App\Models\Engine;
 use \Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Input;
-use App\Models\Moodel;
-use App\Models\Brand;
+use App\Models\Team;
 
 class TeamController extends AdminBaseController
 {
 
-    /*
-    |--------------------------------------------------------------------------
-    | Welcome Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller renders the "marketing page" for the application and
-    | is configured to only allow guests. Like most of the other sample
-    | controllers, you are free to modify or remove it as you desire.
-    |
-    */
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
 
     public function __construct()
     {
@@ -45,24 +27,32 @@ class TeamController extends AdminBaseController
 
     public function saveMember()
     {
-        $model = new Engine();
-        $model->engine_name = Input::get('name');
-        $model->engine_description = Input::get('description');
-        $model->engine_power = Input::get('power');
-        $model->model_id = Input::get('model');
-        if ($model->save()) {
-            return redirect('/manageengine');
-        }
+
+         $team = new Team();
+         $team->member_name= Input::get('name');
+         $team->member_email = Input::get('email');
+         $team->member_fb_link = Input::get('fb_link');
+         $team->member_twitter_link = Input::get('twitter_link');
+         $team->member_linkdin_link = Input::get('linkdin_link');
+         $team->member_contact = Input::get('contact');
+         $file = Input::file('image');
+         $destinationPath = 'uploads/TeamImages'; // upload path
+         $extension = $file->getClientOriginalExtension(); // getting image extension
+         $fileName = str_replace(' ', '',$team->member_name) . "_" .rand(0, 100) . '.' . $extension; // renameing image
+         $file->move($destinationPath, $fileName);
+         $team->member_photo = $destinationPath . '/' . $fileName;
+
+         if($team->save())
+         {
+             return redirect('/managemember');
+         }
 
     }
 
     public function manage()
     {
-        $data = new Engine();
-
-        $engines= $data->getAllEngine();
-
-        return view('engine.manageengine')->with('engines', $engines);
+        $members= Team::all();
+        return view('Team.managemember')->with('members', $members);
     }
 
     public function edit($id)
