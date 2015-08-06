@@ -67,7 +67,7 @@ $(function () {
             </div>
         </div>
         <div class="col-md-8">
-            <button id="save" class="btn btn-success"><i class="icon-add-symbol"></i> Save</button>
+            <input type="submit" id="save" class="btn btn-success" value="save"/>
             <button class="btn btn-danger"><i class="fa fa-trash-o"></i> Cancel</button>
         </div>
     </form>
@@ -91,7 +91,6 @@ $(function () {
             return false;
 
         }
-        return false;
     })
 </script>
 @stop
