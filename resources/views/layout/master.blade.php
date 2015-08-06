@@ -89,7 +89,7 @@
             <div id="footer" class="hidden-print">
 
                 <!--  Copyright Line -->
-                <div class="copy">&copy; 2012 - 2014 - - All Rights Reserved. Developed by TeamLogicians</div>
+                <div class="copy">&copy; All Rights Reserved By D-gap services . Developed by Team TechLogicians</div>
                 <!--  End Copyright Line -->
 
             </div>
