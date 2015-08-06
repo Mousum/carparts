@@ -77,6 +77,17 @@ return [
 			'prefix'    => '',
 			'strict'    => false,
 		],
+//		'mysql' => [
+//			'driver'    => 'mysql',
+//			'host'      => 'localhost',
+//			'database'  => 'dgapservice_carparts',
+//			'username'  => 'dgap_admin',
+//			'password'  => 'dg@ps3rvic3s',
+//			'charset'   => 'utf8',
+//			'collation' => 'utf8_unicode_ci',
+//			'prefix'    => '',
+//			'strict'    => false,
+//		],
 
 		'pgsql' => [
 			'driver'   => 'pgsql',
