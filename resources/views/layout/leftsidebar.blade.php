@@ -3,23 +3,23 @@
                 <div id="sidebar-discover-wrapper">
                     <ul class="list-unstyled">
 
-                        <li class="active">
+                        {{--<li class="active">--}}
 
-                            <a href="#sidebar-discover-social" class="glyphicons home " data-toggle="sidebar-discover"><span class="badge pull-right badge-primary hidden-md">7</span><i></i><span>Overview</span></a>
-                            <div id="sidebar-discover-social" class="sidebar-discover-menu">
-                                <div class="innerAll text-center border-bottom text-muted-dark">
-                                    <strong>Overview</strong>
-                                    <button class="btn btn-xs btn-default close-discover"><i class="fa fa-fw fa-times"></i></button>
-                                </div>
-                                <ul class="animated fadeIn">
-                                    <li class="active"><a href="index.html?lang=en">Analytics</a></li>
-                                    <li><a href="dashboard_users.html?lang=en">Users</a></li>
-                                    <li><a href="medical_overview.html?lang=en">Medical</a></li>
-                                    <li><a href="finances.html?lang=en">Financial</a></li>
-                                    <li><a href="courses_2.html?lang=en">Learning</a></li>
-                                </ul>
-                            </div>
-                        </li>
+                            {{--<a href="#sidebar-discover-social" class="glyphicons home " data-toggle="sidebar-discover"><span class="badge pull-right badge-primary hidden-md">7</span><i></i><span>Overview</span></a>--}}
+                            {{--<div id="sidebar-discover-social" class="sidebar-discover-menu">--}}
+                                {{--<div class="innerAll text-center border-bottom text-muted-dark">--}}
+                                    {{--<strong>Overview</strong>--}}
+                                    {{--<button class="btn btn-xs btn-default close-discover"><i class="fa fa-fw fa-times"></i></button>--}}
+                                {{--</div>--}}
+                                {{--<ul class="animated fadeIn">--}}
+                                    {{--<li class="active"><a href="index.html?lang=en">Analytics</a></li>--}}
+                                    {{--<li><a href="dashboard_users.html?lang=en">Users</a></li>--}}
+                                    {{--<li><a href="medical_overview.html?lang=en">Medical</a></li>--}}
+                                    {{--<li><a href="finances.html?lang=en">Financial</a></li>--}}
+                                    {{--<li><a href="courses_2.html?lang=en">Learning</a></li>--}}
+                                {{--</ul>--}}
+                            {{--</div>--}}
+                        {{--</li>--}}
                         <li>
                             <a href="#sidebar-discover-media" class="glyphicons picture" data-toggle="sidebar-discover"><span class="badge pull-right badge-primary hidden-md">2</span><i></i><span>Admin</span></a>
                             <div id="sidebar-discover-media" class="sidebar-discover-menu">
