@@ -47,19 +47,18 @@
         <div class="container-fluid menu-hidden">
 
             <!-- Sidebar Menu -->
-            @include('layout.leftsidebar');
+            @include('layout.leftsidebar')
             <!-- // Sidebar Menu END -->
 
             <!-- Content -->
             <div id="content">
-
-                @include('layout.navigation');
+                @include('layout.navigation')
                 <!-- // END navbar -->
 
 
 
                 <div class="innerLR">
-                    @yield('content');
+                    @yield('content')
 
                 </div>
 
@@ -90,7 +89,7 @@
             <div id="footer" class="hidden-print">
 
                 <!--  Copyright Line -->
-                <div class="copy">&copy; 2012 - 2014 - <a href="http://www.mosaicpro.biz">MosaicPro</a> - All Rights Reserved. <a href="http://themeforest.net/?ref=mosaicpro" target="_blank">Purchase BUSINESS on ThemeForest</a> - Current version: v1.0.2 / <a target="_blank" href="http://demo.mosaicpro.biz/coral/CHANGELOG.txt">changelog</a></div>
+                <div class="copy">&copy; 2012 - 2014 - - All Rights Reserved. Developed by TeamLogicians</div>
                 <!--  End Copyright Line -->
 
             </div>
