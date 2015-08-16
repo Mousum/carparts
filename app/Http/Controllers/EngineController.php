@@ -61,7 +61,7 @@ class EngineController extends AdminBaseController
     {
         $data = new Engine();
 
-        $engines= $data->getAllEngine();
+        $engines = $data->getAllEngine();
 
         return view('engine.manageengine')->with('engines', $engines);
     }
@@ -70,9 +70,11 @@ class EngineController extends AdminBaseController
     {
         $engine = Engine::find($id);
         $models = Moodel::all();
-        return view('engine.editengine')->with('engine', $engine)->with('models',$models);
+        return view('engine.editengine')->with('engine', $engine)->with('models', $models);
     }
-    public function update($id) {
+
+    public function update($id)
+    {
 
         $engine = Engine::find($id);
         $name = Input::get('name');
@@ -80,7 +82,7 @@ class EngineController extends AdminBaseController
         $engine_power = Input::get('power');
         $model_id = Input::get('model');
         $engine->engine_name = $name;
-        $engine->engine_description=$engine_description;
+        $engine->engine_description = $engine_description;
         $engine->engine_power = $engine_power;
         $engine->model_id = $model_id;
 
@@ -98,6 +100,19 @@ class EngineController extends AdminBaseController
 
             return redirect('/manageengine');
         }
+    }
+
+    public function  GetEngineByModel()
+    {
+        $engines = Engine::where('model_id', '=', Input::get('model'))->get();
+        $all = [];
+        if (!empty($engines)) {
+            foreach ($engines as $engine) {
+                $all[] = array('id' => $engine->engine_id, 'name' => $engine->engine_name);
+            }
+        }
+
+        echo json_encode($all);
     }
 
 

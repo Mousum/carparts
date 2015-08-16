@@ -91,6 +91,16 @@ class ModelController extends AdminBaseController
             return redirect('/managemodel');
         }
     }
+    public  function  GetModelByBrand()
+    {
+        $models = Moodel::where('brand_id','=',Input::get('brand'))->get();
+        $all = [];
+        foreach ($models as $model) {
+            $all[] = array('id' => $model->model_id, 'name' => $model->model_name);
+        }
+
+        echo json_encode($all);
+    }
 
 
 }

@@ -52,6 +52,7 @@ Route::get('managemodel','ModelController@manage');
 Route::get('deletemodel/{id}','ModelController@delete');
 Route::get('editmodel/{id}','ModelController@edit');
 Route::post('updatemodel/{id}','ModelController@update');
+Route::get('getmodels','ModelController@GetModelByBrand');
 
 // Engine
 Route::get('createengine','EngineController@createEngine');
@@ -60,6 +61,7 @@ Route::get('manageengine','EngineController@manage');
 Route::get('editengine/{id}','EngineController@edit');
 Route::post('updateengine/{id}','EngineController@update');
 Route::get('deleteengine/{id}','ModelController@delete');
+Route::get('getengine','EngineController@GetEngineByModel');
 
 //Department
 Route::get('depts','DepartmentsController@Index');
@@ -97,3 +99,13 @@ Route::Post('savemember','TeamController@saveMember');
 Route::get('managemember','TeamController@manage');
 
 
+//Products
+Route::get('products/create','ProductsController@Create');
+
+//vehicle
+Route::get('vehicle/manage','VehicleController@ManageVehicle');
+Route::get('vehicle/create','VehicleController@Create');
+Route::get('vehicle/edit/{id}','VehicleController@editVehicle');
+Route::post('vehicle/save','VehicleController@SaveVehicle');
+Route::post('deletevehicle','VehicleController@deletevehicle');
+Route::post('vehicle/update/{id}','VehicleController@UpdateVehicle');
