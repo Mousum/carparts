@@ -101,6 +101,7 @@ Route::get('managemember','TeamController@manage');
 
 //Products
 Route::get('products/create','ProductsController@Create');
+Route::post('products/save','ProductsController@SaveProduct');
 
 //vehicle
 Route::get('vehicle/manage','VehicleController@ManageVehicle');
