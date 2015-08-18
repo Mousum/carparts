@@ -92,7 +92,7 @@ class ProductsController Extends AdminBaseController
             }
         }
     }
-    
+
 
     private function  generateRandomString($length = 10)
     {
