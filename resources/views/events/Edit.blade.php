@@ -144,7 +144,7 @@ $(function () {
 
             }
         });
-    })
+    });
     $(".img").hover(function () {
 
         $(this).children(".close-btn").show();

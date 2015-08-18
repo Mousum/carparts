@@ -11,6 +11,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Brand;
 use App\Models\Department;
+use App\Models\ProductDescriptionMeta;
 use App\Models\Products;
 use App\Models\VehicleProducts;
 use App\Models\Vehicles;
@@ -68,6 +69,13 @@ class ProductsController Extends AdminBaseController
         if (!empty($key) && !empty($value)) {
             foreach ($key as $index => $val) {
                 $meta_description[] = array('key' => $val, 'value' => $value[$index]);
+                $data = ProductDescriptionMeta::where('key_word', '=',$val)->get();
+
+                if (!$data->first()) {
+                    $value_key = new ProductDescriptionMeta();
+                    $value_key->key_word= $val;
+                    $value_key->save();
+                }
             }
             $item->product_meta_descriptions = json_encode($meta_description);
         } else {
@@ -75,7 +83,7 @@ class ProductsController Extends AdminBaseController
         }
 
         $item->product_name = Input::get('product_name');
-        $item->product_dept_id =Input::get('product_department');
+        $item->product_dept_id = Input::get('product_department');
         $item->product_price = Input::get('product_price');
         $item->is_active = 1;
         $item->is_front_page = (isset($_POST['is_frontpage'])) ? 1 : 0;
@@ -84,7 +92,7 @@ class ProductsController Extends AdminBaseController
 
         if ($item->save()) {
             $vehicles = Input::get('vehicle');
-            foreach($vehicles as $vehicle=>$id){
+            foreach ($vehicles as $vehicle => $id) {
                 $vp = new VehicleProducts();
                 $vp->vp_vehicle_id = $id;
                 $vp->vp_product_id = $item->product_id;
@@ -97,6 +105,36 @@ class ProductsController Extends AdminBaseController
     private function  generateRandomString($length = 10)
     {
         return substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length);
+    }
+
+    public function GetDescriptionMeta()
+    {
+        $meta = ProductDescriptionMeta::where('key_word', 'Like', '%' . Input::get('keyword') . '%')->get();
+        $array = [];
+        foreach ($meta as $value) {
+            $array[] = $value->key_word;
+
+        }
+        echo json_encode($array);
+    }
+    public function manageProduct(){
+        $products = Products::with('Departments')->get();
+        foreach($products as $product){
+            $product->vehicles = VehicleProducts::where('vp_product_id','=',$product->product_id)->get();
+        }
+        return view('products.manage', array('products' => $products));
+    }
+    public function EditProduct($id){
+
+    }
+    public function DeleteProduct() {
+        $id = Input::get('id');
+        $product = Products::find($id);
+
+        if ($product->delete()) {
+
+            return "Success";
+        }
     }
 
 

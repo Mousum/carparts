@@ -100,8 +100,12 @@ Route::get('managemember','TeamController@manage');
 
 
 //Products
+Route::get('products/manage','ProductsController@manageProduct');
 Route::get('products/create','ProductsController@Create');
+Route::get('products/edit/{id}','ProductsController@EditProduct');
+Route::get('products/getDescriptionMeta','ProductsController@GetDescriptionMeta');
 Route::post('products/save','ProductsController@SaveProduct');
+Route::post('product/delete','ProductsController@DeleteProduct');
 
 //vehicle
 Route::get('vehicle/manage','VehicleController@ManageVehicle');

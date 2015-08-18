@@ -16,4 +16,8 @@ class Products Extends Model{
     protected $table = 'product';
     public $timestamps = FALSE;
     protected $primaryKey = 'product_id';
+
+    public function Departments(){
+        return $this->hasOne('App\Models\Department','department_id','product_dept_id');
+    }
 }

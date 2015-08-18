@@ -91,12 +91,12 @@
                     <div class="row description">
                         <div class="widget-body ">
                             <div style="width: 40% ;float: left;">
-                                <input type="text" id="key" name="product_description_key[]" placeholder=""
-                                       class="form-control"
+                                <input type="text"  name="product_description_key[]" placeholder="" autocomplete="off"
+                                       class="form-control key" onkeyup="getDescriptionMeta(this)"
                                        style="color:black !important;">
                             </div>
                             <div style="width: 55% ;float: right;">
-                            <textarea name="product_description_value[]" placeholder="" id="value" class="form-control"
+                            <textarea name="product_description_value[]" placeholder=""  class="form-control value"
                                       style="color:black !important;"></textarea>
                             </div>
                         </div>
@@ -118,6 +118,9 @@
             <button class="btn btn-danger"><i class="fa fa-trash-o"></i> Cancel</button>
         </div>
     </form>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="{{URL::to('resources/assets/components/common/forms/elements/multiselect/assets/lib/js/jquery.multi-select.js?v=v1.0.2&sv=v0.0.1')}}"></script>
     <script src="{{URL::to('resources/assets/components/common/forms/elements/multiselect/assets/custom/js/multiselect.init.js?v=v1.0.2&sv=v0.0.1')}}"></script>
     <script>
@@ -130,13 +133,22 @@
             });
             $(".add-more-description").click(function () {
                 if ($(".key").last().val() != '' && $(".value").last().val() != '') {
-                    $(".description").append('<div class="widget-body "> <div style="width: 40% ;float: left;"><input type="text" id="key" name="product_description_key[]" placeholder="" class="form-control"' +
+                    $(".description").append('<div class="widget-body "> <div style="width: 40% ;float: left;"><input type="text"  name="product_description_key[]" placeholder="" onkeyup="getDescriptionMeta(this)" autocomplete="off" class="form-control key"' +
                     'style="color:black !important;"></div> <div style="width: 55% ;float: right;"><textarea name="product_description_value[]" placeholder="" id="value" class="form-control"' +
                     'style="color:black !important;"></textarea> </div></div> <div class="clearfix"></div>');
                 }
 
             });
         });
+        function getDescriptionMeta(e){
+            $.get( $("#base_url").val() + "/products/getDescriptionMeta?keyword="+e.value,function(data){
+                availableTags = $.parseJSON(data);
+                $( ".key" ).autocomplete({
+                    source: availableTags
+                });
+            });
+        }
+
     </script>
 
 @stop
