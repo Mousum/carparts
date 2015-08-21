@@ -106,6 +106,8 @@ Route::get('products/edit/{id}','ProductsController@EditProduct');
 Route::get('products/getDescriptionMeta','ProductsController@GetDescriptionMeta');
 Route::post('products/save','ProductsController@SaveProduct');
 Route::post('product/delete','ProductsController@DeleteProduct');
+Route::post('/products/deleteImage','ProductsController@deleteImage');
+Route::post('/products/update/{id}','ProductsController@UpdateProduct');
 
 //vehicle
 Route::get('vehicle/manage','VehicleController@ManageVehicle');

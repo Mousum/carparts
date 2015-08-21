@@ -98,6 +98,33 @@
                                 </ul>
                             </div>
                         </li>
+                        <li>
+                            <a href="#sidebar-discover-vehicle" class="glyphicons envelope" data-toggle="sidebar-discover"><i></i><span>Vehicle</span></a>
+                            <div id="sidebar-discover-vehicle" class="sidebar-discover-menu">
+                                <div class="innerAll text-center border-bottom text-muted-dark">
+                                    <strong>Vehicle</strong>
+                                    <button class="btn btn-xs btn-default close-discover"><i class="fa fa-fw fa-times"></i></button>
+                                </div>
+                                <ul class="animated fadeIn">
+                                    <li><a href="{{URL::to('/vehicle/create')}}"><i class="fa fa-envelope"></i> Add </a></li>
+                                    <li><a href="{{URL::to('/vehicle/manage')}}"><i class="fa fa-pencil"></i> Manage </a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#sidebar-discover-products" class="glyphicons envelope" data-toggle="sidebar-discover"><i></i><span>Products</span></a>
+                            <div id="sidebar-discover-products" class="sidebar-discover-menu">
+                                <div class="innerAll text-center border-bottom text-muted-dark">
+                                    <strong>Products</strong>
+                                    <button class="btn btn-xs btn-default close-discover"><i class="fa fa-fw fa-times"></i></button>
+                                </div>
+                                <ul class="animated fadeIn">
+                                    <li><a href="{{URL::to('/products/create')}}"><i class="fa fa-envelope"></i> Add </a></li>
+                                    <li><a href="{{URL::to('/products/manage')}}"><i class="fa fa-pencil"></i> Manage </a></li>
+                                </ul>
+                            </div>
+                        </li>
+
 
 
 <!--                        <li>

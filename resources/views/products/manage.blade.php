@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('content')
-    <h2 class="margin-none">All Brands &nbsp;<i class="fa fa-fw fa-pencil text-muted"></i><a href="{{URL::to('brands/create')}}" style="float:right; margin-bottom: 20px;" class="btn btn-inverse">Add Brand</a></h2>
+    <h2 class="margin-none">All Products &nbsp;<i class="fa fa-fw fa-pencil text-muted"></i><a href="{{URL::to('products/create')}}" style="float:right; margin-bottom: 20px;" class="btn btn-inverse">Add Brand</a></h2>
 
     <div class="separator-h"></div>
     @if(Session::has('success'))
