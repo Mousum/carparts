@@ -14,7 +14,7 @@
 <!--                                <li><a href="my_account.html?lang=en" class="glyphicons user"><i></i> Account</a></li>
                                 <li><a href="messages.html?lang=en" class="glyphicons envelope"><i></i>Messages</a></li>
                                 <li><a href="index.html?lang=en" class="glyphicons settings"><i></i>Settings</a></li>-->
-                                <li><a href="{{URL::to('/logout')}}" class="glyphicons lock no-ajaxify"><i></i>Logout</a></li>
+                                <li><a href="{{URL::to('admin/logout')}}" class="glyphicons lock no-ajaxify"><i></i>Logout</a></li>
                             </ul>
                         </li>
                     </ul>
