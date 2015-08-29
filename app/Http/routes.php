@@ -15,29 +15,31 @@ Route::resource('project', 'ProjectController');
 Route::resource('category', 'CategoryController');
 Route::resource('user', 'UserController');
 
+Route::group(array('prefix' => 'admin'), function() {
+
 //admin
-Route::get('/','LoginController@index');
-Route::post('check','LoginController@loginCheck');
-Route::get('admin','AdminController@index');
-Route::get('createadmin','AdminController@createAdmin');
-Route::post('saveadmin','AdminController@saveAdmin');
-Route::get('manageadmin','AdminController@manage');
-Route::get('editadmin/{id}','AdminController@edit');
-Route::post('updateadmin/{id}','AdminController@update');
-Route::get('deleteadmin/{id}','AdminController@delete');
-Route::post('blockadmin','AdminController@block');
-Route::post('unblockadmin','AdminController@unblock');
-Route::get('login','LoginController@index');
-Route::get('logout','LoginController@logout');
+Route::get('/','Admin\LoginController@index');
+Route::post('check','Admin\LoginController@loginCheck');
+Route::get('admin','Admin\AdminController@index');
+Route::get('createadmin','Admin\AdminController@createAdmin');
+Route::post('saveadmin','Admin\AdminController@saveAdmin');
+Route::get('manageadmin','Admin\AdminController@manage');
+Route::get('editadmin/{id}','Admin\AdminController@edit');
+Route::post('updateadmin/{id}','Admin\AdminController@update');
+Route::get('deleteadmin/{id}','Admin\AdminController@delete');
+Route::post('blockadmin','Admin\AdminController@block');
+Route::post('unblockadmin','Admin\AdminController@unblock');
+Route::get('login','Admin\LoginController@index');
+Route::get('logout','Admin\LoginController@logout');
 
 
 //Brand
-Route::get('brands','BrandController@Index');
-Route::get('brands/create','BrandController@createBrand');
-Route::get('brands/edit/{id}','BrandController@editBrand');
-Route::post('savebrand','BrandController@saveBrand');
-Route::post('updateBrand/{id}','BrandController@updateBrand');
-Route::post('deleteBrand','BrandController@delete');
+Route::get('brands','Admin\BrandController@Index');
+Route::get('brands/create','Admin\BrandController@createBrand');
+Route::get('brands/edit/{id}','Admin\BrandController@editBrand');
+Route::post('savebrand','Admin\BrandController@saveBrand');
+Route::post('updateBrand/{id}','Admin\BrandController@updateBrand');
+Route::post('deleteBrand','Admin\BrandController@delete');
 //Route::controllers([
 //	'auth' => 'Auth\AuthController',
 //	'password' => 'Auth\PasswordController',
@@ -46,73 +48,75 @@ Route::post('deleteBrand','BrandController@delete');
 
 //Model
 
-Route::get('createmodel','ModelController@createModel');
-Route::post('savemodel','ModelController@saveModel');
-Route::get('managemodel','ModelController@manage');
-Route::get('deletemodel/{id}','ModelController@delete');
-Route::get('editmodel/{id}','ModelController@edit');
-Route::post('updatemodel/{id}','ModelController@update');
-Route::get('getmodels','ModelController@GetModelByBrand');
+Route::get('createmodel','Admin\ModelController@createModel');
+Route::post('savemodel','Admin\ModelController@saveModel');
+Route::get('managemodel','Admin\ModelController@manage');
+Route::get('deletemodel/{id}','Admin\ModelController@delete');
+Route::get('editmodel/{id}','Admin\ModelController@edit');
+Route::post('updatemodel/{id}','Admin\ModelController@update');
+Route::get('getmodels','Admin\ModelController@GetModelByBrand');
 
 // Engine
-Route::get('createengine','EngineController@createEngine');
-Route::post('saveengine','EngineController@saveEngine');
-Route::get('manageengine','EngineController@manage');
-Route::get('editengine/{id}','EngineController@edit');
-Route::post('updateengine/{id}','EngineController@update');
-Route::get('deleteengine/{id}','ModelController@delete');
-Route::get('getengine','EngineController@GetEngineByModel');
+Route::get('createengine','Admin\EngineController@createEngine');
+Route::post('saveengine','Admin\EngineController@saveEngine');
+Route::get('manageengine','Admin\EngineController@manage');
+Route::get('editengine/{id}','Admin\EngineController@edit');
+Route::post('updateengine/{id}','Admin\EngineController@update');
+Route::get('deleteengine/{id}','Admin\EngineController@delete');
+Route::get('getengine','Admin\EngineController@GetEngineByModel');
 
 //Department
-Route::get('depts','DepartmentsController@Index');
-Route::get('dept/create','DepartmentsController@Create');
-Route::Post('savedept','DepartmentsController@savedept');
-Route::Post('GetModelByBrand','DepartmentsController@GetModelByBrand');
-Route::Post('GetEngineByModel','DepartmentsController@GetEngineByModel');
-Route::Post('DeleteDepartment','DepartmentsController@DeleteDepartment');
-Route::get('dept/edit/{id}','DepartmentsController@edit');
-Route::post('updatedept','DepartmentsController@updatedept');
+Route::get('depts','Admin\DepartmentsController@Index');
+Route::get('dept/create','Admin\DepartmentsController@Create');
+Route::Post('savedept','Admin\DepartmentsController@savedept');
+Route::Post('GetModelByBrand','Admin\DepartmentsController@GetModelByBrand');
+Route::Post('GetEngineByModel','Admin\DepartmentsController@GetEngineByModel');
+Route::Post('DeleteDepartment','Admin\DepartmentsController@DeleteDepartment');
+Route::get('dept/edit/{id}','Admin\DepartmentsController@edit');
+Route::post('updatedept','Admin\DepartmentsController@updatedept');
 
 
 
 
 //Sub Department
-Route::get('createsubdepartment','SubDepartmentController@createSubDepartment');
-Route::post('savesubdepartment','SubDepartmentController@saveSubDepartment');
-Route::get('managesubdepartment','SubDepartmentController@manage');
-Route::get('editsubdepartment/{id}','SubDepartmentController@edit');
-Route::get('updatesubdepartment/{id}','SubDepartmentController@update');
+Route::get('createsubdepartment','Admin\SubDepartmentController@createSubDepartment');
+Route::post('savesubdepartment','Admin\SubDepartmentController@saveSubDepartment');
+Route::get('managesubdepartment','Admin\SubDepartmentController@manage');
+Route::get('editsubdepartment/{id}','Admin\SubDepartmentController@edit');
+Route::get('updatesubdepartment/{id}','Admin\SubDepartmentController@update');
 
 //events
-Route::get('events/create','EventsController@create');
-Route::post('events/add','EventsController@addEvent');
-Route::get('events','EventsController@Index');
-Route::get('events/edit/{id}','EventsController@Edit');
-Route::post('events/update','EventsController@Update');
-Route::post('events/deleteImage','EventsController@deleteImage');
-Route::post('events/delete','EventsController@deleteEvent');
+Route::get('events/create','Admin\EventsController@create');
+Route::post('events/add','Admin\EventsController@addEvent');
+Route::get('events','Admin\EventsController@Index');
+Route::get('events/edit/{id}','Admin\EventsController@Edit');
+Route::post('events/update','Admin\EventsController@Update');
+Route::post('events/deleteImage','Admin\EventsController@deleteImage');
+Route::post('events/delete','Admin\EventsController@deleteEvent');
 
 
 //Team
-Route::get('createmember','TeamController@createMember');
-Route::Post('savemember','TeamController@saveMember');
-Route::get('managemember','TeamController@manage');
+Route::get('createmember','Admin\TeamController@createMember');
+Route::Post('savemember','Admin\TeamController@saveMember');
+Route::get('managemember','Admin\TeamController@manage');
 
 
 //Products
-Route::get('products/manage','ProductsController@manageProduct');
-Route::get('products/create','ProductsController@Create');
-Route::get('products/edit/{id}','ProductsController@EditProduct');
-Route::get('products/getDescriptionMeta','ProductsController@GetDescriptionMeta');
-Route::post('products/save','ProductsController@SaveProduct');
-Route::post('product/delete','ProductsController@DeleteProduct');
-Route::post('/products/deleteImage','ProductsController@deleteImage');
-Route::post('/products/update/{id}','ProductsController@UpdateProduct');
+Route::get('products/manage','Admin\ProductsController@manageProduct');
+Route::get('products/create','Admin\ProductsController@Create');
+Route::get('products/edit/{id}','Admin\ProductsController@EditProduct');
+Route::get('products/getDescriptionMeta','Admin\ProductsController@GetDescriptionMeta');
+Route::post('products/save','Admin\ProductsController@SaveProduct');
+Route::post('product/delete','Admin\ProductsController@DeleteProduct');
+Route::post('/products/deleteImage','Admin\ProductsController@deleteImage');
+Route::post('/products/update/{id}','Admin\ProductsController@UpdateProduct');
 
 //vehicle
-Route::get('vehicle/manage','VehicleController@ManageVehicle');
-Route::get('vehicle/create','VehicleController@Create');
-Route::get('vehicle/edit/{id}','VehicleController@editVehicle');
-Route::post('vehicle/save','VehicleController@SaveVehicle');
-Route::post('deletevehicle','VehicleController@deletevehicle');
-Route::post('vehicle/update/{id}','VehicleController@UpdateVehicle');
+Route::get('vehicle/manage','Admin\VehicleController@ManageVehicle');
+Route::get('vehicle/create','Admin\VehicleController@Create');
+Route::get('vehicle/edit/{id}','Admin\VehicleController@editVehicle');
+Route::post('vehicle/save','Admin\VehicleController@SaveVehicle');
+Route::post('deletevehicle','Admin\VehicleController@deletevehicle');
+Route::post('vehicle/update/{id}','Admin\VehicleController@UpdateVehicle');
+
+});
