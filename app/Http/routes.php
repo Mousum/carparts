@@ -120,3 +120,6 @@ Route::post('deletevehicle','Admin\VehicleController@deletevehicle');
 Route::post('vehicle/update/{id}','Admin\VehicleController@UpdateVehicle');
 
 });
+//Site
+
+Route::get('/','Frontend\SiteController@Home');
