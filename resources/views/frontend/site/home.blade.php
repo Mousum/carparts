@@ -160,11 +160,9 @@
                             <div class="span-tag">Special</div>
                         @endif
                         <div class="panel-heading">
-                            <?php $images = json_decode($product->product_images);
-                            list($name, $ext) = explode('.', $images[0]);
-                            ?>
+                            <?php $images = json_decode($product->product_images); ?>
                             @if($images!=null)
-
+                                <?php list($name, $ext) = explode('.', $images[0]);?>
                                 <img src="{{URL::to('uploads/product_images/'.$name.'_thumb.'.$ext)}}" width="204px"
                                      height="210px">
                             @else
