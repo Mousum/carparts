@@ -18,6 +18,7 @@ use App\Models\Vehicles;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
+use Intervention\Image\Facades\Image;
 
 class ProductsController Extends AdminBaseController
 {
@@ -49,11 +50,15 @@ class ProductsController Extends AdminBaseController
             foreach ($files as $file) {
 
                 $destinationPath = 'uploads/product_images';
-                $filename = $this->generateRandomString() . '.' . File::extension($file->getClientOriginalName());
+                $rendom  =$this->generateRandomString() ;
+                $ext = File::extension($file->getClientOriginalName());
+                $filename = $rendom. '.' .$ext ;
                 $upload_success = $file->move($destinationPath, $filename);
                 if ($upload_success) {
                     //  array_push($fileArray, $filename);
                     $fileArray[] = $filename;
+                    $img = Image::make(Url('uploads/product_images/'.$filename))->resize(210, 204);
+                    $img->save('uploads/product_images/'.$rendom.'_thumb.'.$ext );
                 }
             }
             $item->product_images = json_encode($fileArray);

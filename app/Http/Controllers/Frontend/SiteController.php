@@ -19,6 +19,6 @@ class SiteController extends FrontBaseController
         $brandModel = new ProductController();
         $featuredProducts = Products::with('Departments')->where('is_active','=',1)->paginate(8);
         $featuredProducts->setPath(url('/'));
-         return view('frontend.site.home',array('brands'=>$brandModel->GetProductBrands(),'featuredproducts'=>$featuredProducts));
+        return view('frontend.site.home',array('brands'=>$brandModel->GetProductBrands(),'featuredproducts'=>$featuredProducts));
     }
 }

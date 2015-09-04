@@ -112,27 +112,32 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="{{URL::to('resources/assets/frontend/js/bootstrap.min.js')}}"></script>
 <script src="{{URL::to('resources/assets/frontend/js/owl.carousel.js')}}"></script>
+<script src="{{URL::to('resources/assets/frontend/js/owl.carousel.min.js')}}"></script>
 <script src="{{URL::to('resources/assets/frontend/js/frontend.custom.js')}}"></script>
 <script>
 
     $(document).ready(function () {
 
-        var owl = $("#owl-demo");
-
+        var owl =  $("#owl-demo");
         owl.owlCarousel({
-            autoPlay: 3000,
-            stopOnHover: true,
-            transitionStyle: "fade"
+            items:5,
+            loop:true,
+            margin:10,
+            autoplay:true,
+            autoplayTimeout:1000,
+            autoplayHoverPause:true,
+            transitionStyle : "fade"
         });
 
 
-        // Custom Navigation Events
+       //  Custom Navigation Events
         $(".next").click(function () {
             owl.trigger('owl.next');
         })
         $(".prev").click(function () {
             owl.trigger('owl.prev');
         })
+
 
     });
 

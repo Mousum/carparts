@@ -156,22 +156,29 @@
             @foreach($featuredproducts as $product)
                 <div class="col-md-3 col-sm-6">
                     <div class="panel panel-default text-center">
-                        <div class="span-tag">Featured</div>
+                        @if($product->is_special)
+                            <div class="span-tag">Special</div>
+                        @endif
                         <div class="panel-heading">
-                            <?php $images = json_decode($product->product_images)?>
+                            <?php $images = json_decode($product->product_images);
+                            list($name, $ext) = explode('.', $images[0]);
+                            ?>
                             @if($images!=null)
-                                <img src="{{URL::to('uploads/product_images/'.$images[0])}}" width="204px"
+
+                                <img src="{{URL::to('uploads/product_images/'.$name.'_thumb.'.$ext)}}" width="204px"
                                      height="210px">
                             @else
-                                    <img src="{{URL::to('uploads/product_images/no_image.jpg')}}" width="204px"
-                                         height="210px">
+                                <img src="{{URL::to('uploads/product_images/no_image.jpg')}}" width="204px"
+                                     height="210px">
                             @endif
                         </div>
                         <div class="panel-body">
                             <h4>{{$product->product_name}}</h4>
 
-                            <p>{{$product->Departments->department_name}}</p>
-                            <a href="#" class="btn btn-warning">Buy now</a>
+                            <p>{{$product->Departments->department_name}} </p>
+                            <h5><i class="fa fa-money"></i> {{$product->product_price}}<h5>
+
+                                    <a href="#" class="btn btn-warning">Read More</a>
                         </div>
                     </div>
                 </div>
