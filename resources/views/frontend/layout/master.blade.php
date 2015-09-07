@@ -23,6 +23,7 @@
 
     <!-- Custom CSS -->
     <link href="{{URL::to('resources/assets/frontend/css/style.css')}}" rel="stylesheet">
+    <link href="{{URL::to('resources/assets/frontend/css/animate.css')}}" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="{{URL::to('resources/assets/frontend/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet"
@@ -148,7 +149,8 @@
 <script>
     $('.carousel').carousel({
         interval: 5000 //changes the speed
-    })
+    });
+   // new WOW().init();
 </script>
 
 </body>

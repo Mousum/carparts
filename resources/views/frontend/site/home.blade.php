@@ -174,9 +174,9 @@
                             <h4>{{$product->product_name}}</h4>
 
                             <p>{{$product->Departments->department_name}} </p>
-                            <h5><i class="fa fa-money"></i> {{$product->product_price}}<h5>
+                            <h5><i class="fa fa-money"></i> {{$product->product_price}}</h5>
 
-                                    <a href="#" class="btn btn-warning">Read More</a>
+                                    <a href="#{{$product->product_name}}" data-id="{{$product->product_id}}" data-toggle="modal" data-target="#product-modal" class="btn btn-warning btn-details">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -188,5 +188,25 @@
             </div>
         </div>
 
+    </div>
+    <!-- Modal -->
+    <div id="product-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Quick View</h4>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                {{--<div class="modal-footer">--}}
+                    {{--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>--}}
+                {{--</div>--}}
+            </div>
+
+        </div>
     </div>
 @stop

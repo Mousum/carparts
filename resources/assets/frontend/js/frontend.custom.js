@@ -23,4 +23,10 @@ $(document).ready(function () {
             $("#engine").html(html);
         });
     });
+    $(".btn-details").click(function(){
+       // alert($(this).attr('data-id'));
+        $.get(baseurl+'/productdetailspartial?id='+$(this).attr('data-id'),function(data){
+            $(".modal-body").html(data);
+        });
+    });
 });

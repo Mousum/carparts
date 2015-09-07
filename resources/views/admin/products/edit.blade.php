@@ -140,6 +140,9 @@
                     <div class="widget-head">
                         <input type="checkbox" name="is_special" class="checkbox "@if($product->is_special){{"Checked"}}@endif> Is it a special product?
                     </div>
+                    <div class="widget-head">
+                        <input type="checkbox" name="is_pricevisible" class="checkbox "@if($product->is_price_visible){{"Checked"}}@endif> Is it a special product?
+                    </div>
                 </div>
             </div>
             <button id="save" class="btn btn-success"><i class="icon-add-symbol"></i> Save</button>

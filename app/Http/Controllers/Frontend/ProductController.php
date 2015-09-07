@@ -12,6 +12,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Models\Brand;
 use App\Models\Engine;
 use App\Models\Moodel;
+use App\Models\Products;
 use Illuminate\Support\Facades\Input;
 
 class ProductController extends FrontBaseController
@@ -41,5 +42,15 @@ class ProductController extends FrontBaseController
         }
         return json_encode($engine);
     }
+    public function GetProductDetailsPartial(){
+       $product =  Products::with('Departments')->where('product_id','=',Input::get('id'))->first();
+
+        return view('frontend.product._productbody',['product'=>$product]);
+    }
      //Service Ends
+    public function ProductDetails($slug){
+        $arr = explode('-',trim($slug));
+        $product = Products::with('Departments')->where('product_id', '=',$arr[0])->first();
+        return view('frontend.product.productdetails', ['product' => $product]);
+    }
 }

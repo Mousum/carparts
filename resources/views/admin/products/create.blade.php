@@ -112,6 +112,9 @@
                     <div class="widget-head">
                         <input type="checkbox" name="is_special" class="checkbox "> Is it a special product?
                     </div>
+                    <div class="widget-head">
+                        <input type="checkbox" name="is_pricevisible" class="checkbox "> Is  product price visible?
+                    </div>
                 </div>
             </div>
             <button id="save" class="btn btn-success"><i class="icon-add-symbol"></i> Save</button>

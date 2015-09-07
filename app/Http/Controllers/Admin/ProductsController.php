@@ -50,15 +50,20 @@ class ProductsController Extends AdminBaseController
             foreach ($files as $file) {
 
                 $destinationPath = 'uploads/product_images';
-                $rendom  =$this->generateRandomString() ;
+                $rendom = $this->generateRandomString();
                 $ext = File::extension($file->getClientOriginalName());
-                $filename = $rendom. '.' .$ext ;
+                $filename = $rendom . '.' . $ext;
                 $upload_success = $file->move($destinationPath, $filename);
                 if ($upload_success) {
                     //  array_push($fileArray, $filename);
                     $fileArray[] = $filename;
-                    $img = Image::make(Url('uploads/product_images/'.$filename))->resize(210, 204);
-                    $img->save('uploads/product_images/'.$rendom.'_thumb.'.$ext );
+                    $img = Image::make(Url('uploads/product_images/' . $filename))->resize(210, 204);
+                    $img->save('uploads/product_images/' . $rendom . '_thumb.' . $ext);
+                    $img = Image::make(Url('uploads/product_images/' . $filename))->resize(150, 150);
+                    $img->save('uploads/product_images/' . $rendom . '_150x150.' . $ext);
+                    $img = Image::make(Url('uploads/product_images/' . $filename))->resize(500, 450);
+                    $img->save('uploads/product_images/' . $rendom . '_500x450.' . $ext);
+
                 }
             }
             $item->product_images = json_encode($fileArray);
@@ -89,13 +94,14 @@ class ProductsController Extends AdminBaseController
         } else {
             return redirect()->back()->withInput()->withErrors(" Incomplete Product description");
         }
-
+        $item->product_code = "P-" .substr(md5(time()), 0, 10);;
         $item->product_name = Input::get('product_name');
         $item->product_dept_id = Input::get('product_department');
         $item->product_price = Input::get('product_price');
         $item->is_active = 1;
         $item->is_front_page = (isset($_POST['is_frontpage'])) ? 1 : 0;
         $item->is_special = (isset($_POST['is_special'])) ? 1 : 0;
+        $item->is_price_visible  = (isset($_POST['is_pricevisible'])) ? 1 : 0;
         $item->create_date = date("Y-m-d H:i:s");
 
         if ($item->save()) {
@@ -204,10 +210,19 @@ class ProductsController Extends AdminBaseController
             foreach ($files as $file) {
 
                 $destinationPath = 'uploads/product_images';
-                $filename = $this->generateRandomString() . '.' . File::extension($file->getClientOriginalName());
+                $rendom = $this->generateRandomString();
+                $ext = File::extension($file->getClientOriginalName());
+                $filename = $rendom . '.' . $ext;
+                //$filename = $this->generateRandomString() . '.' . File::extension($file->getClientOriginalName());
                 $upload_success = $file->move($destinationPath, $filename);
                 if ($upload_success) {
                     array_push($fileArray, $filename);
+                    $img = Image::make(Url('uploads/product_images/' . $filename))->resize(210, 204);
+                    $img->save('uploads/product_images/' . $rendom . '_thumb.' . $ext);
+                    $img = Image::make(Url('uploads/product_images/' . $filename))->resize(150, 150);
+                    $img->save('uploads/product_images/' . $rendom . '_150x150.' . $ext);
+                    $img = Image::make(Url('uploads/product_images/' . $filename))->resize(500, 450);
+                    $img->save('uploads/product_images/' . $rendom . '_500x450.' . $ext);
                     //$fileArray[] = $filename;
                 }
             }
@@ -242,6 +257,7 @@ class ProductsController Extends AdminBaseController
         $item->is_active = 1;
         $item->is_front_page = (isset($_POST['is_frontpage'])) ? 1 : 0;
         $item->is_special = (isset($_POST['is_special'])) ? 1 : 0;
+        $item->is_price_visible = (isset($_POST['is_pricevisible'])) ? 1 : 0;
         $item->update_date = date("Y-m-d H:i:s");
 
         if ($item->save()) {
