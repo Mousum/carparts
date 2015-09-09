@@ -88,11 +88,5 @@
             </div>
         </div>
     </div>
-    <script>
-      //  new WOW().init();
-        $(".small-pic").click(function () {
-            alert("");
-            $(".large").attr('src', $(this).attr("data-value"));
-        });
-    </script>
+    
 @stop

@@ -29,4 +29,7 @@ $(document).ready(function () {
             $(".modal-body").html(data);
         });
     });
+    $(".small-pic").click(function () {
+        $(".large").attr('src', $(this).attr("data-value"));
+    });
 });
