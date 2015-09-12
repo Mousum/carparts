@@ -3,6 +3,7 @@
  */
 $(document).ready(function () {
     var baseurl = $("#baseurl").attr('data-content');
+
     $("#brand").change(function () {
         $.get(baseurl + '/getmodels?brand=' + $(this).val(), function (data) {
            var result = JSON.parse(data);
@@ -25,10 +26,22 @@ $(document).ready(function () {
     });
     $(".btn-details").click(function(){
        // alert($(this).attr('data-id'));
+        var  id = $(this).attr('data-id');
+        var  title =  $(this).attr('data-title').toLowerCase().replace(/\s+/g, '-');
         $.get(baseurl+'/productdetailspartial?id='+$(this).attr('data-id'),function(data){
+            $('.countHistory').val($('.countHistory').val()+1);
+            window.history.pushState("", "", baseurl+"/productdetails/"+id+'-'+title);
             $(".modal-body").html(data);
+            $('#product-modal').on('hidden.bs.modal', function () {
+                window.history.go(-$('.countHistory').val());
+                $('.countHistory').val(0);
+            })
         });
     });
+    //$('body').on('click', '.close', function (e) {
+    //    alert();
+    //    window.history.go(-1);
+    //});
     $(".small-pic").click(function () {
         $(".large").attr('src', $(this).attr("data-value"));
     });

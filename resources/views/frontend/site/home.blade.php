@@ -176,7 +176,7 @@
                             <p>{{$product->Departments->department_name}} </p>
                             <h5><i class="fa fa-money"></i> {{$product->product_price}}</h5>
 
-                                    <a href="#{{$product->product_name}}" data-id="{{$product->product_id}}" data-toggle="modal" data-target="#product-modal" class="btn btn-warning btn-details">Read More</a>
+                                    <a data-title="{{$product->product_name}}" href="#" data-id="{{$product->product_id}}" data-toggle="modal" data-target="#product-modal" class="btn btn-warning btn-details">Read More</a>
                         </div>
                     </div>
                 </div>

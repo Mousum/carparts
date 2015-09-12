@@ -57,6 +57,7 @@
     </div>
 </div>
 <div id="baseurl" data-content="{{URL::to('/')}}"></div>
+<input type="hidden" class="countHistory">
 <div class="container">
     @include('frontend.layout.header')
 </div>
