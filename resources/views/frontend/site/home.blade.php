@@ -45,7 +45,6 @@
 
         </div>
     </div>
-
     <!-- Page Content -->
     <div class="container ">
         <!-- Marketing Icons Section -->
@@ -129,7 +128,7 @@
             <div class="row clearfix nomargin">
 
 
-                <div class="customNavigation">
+                <div class="customNavigation" style="visibility: hidden;">
                     <a class="btn prev"><i class="fa fa-chevron-left"></i></a>
                     <a class="btn next"><i class="fa fa-chevron-right"></i></a>
                 </div>
@@ -176,7 +175,9 @@
                             <p>{{$product->Departments->department_name}} </p>
                             <h5><i class="fa fa-money"></i> {{$product->product_price}}</h5>
 
-                                    <a data-title="{{$product->product_name}}" href="#" data-id="{{$product->product_id}}" data-toggle="modal" data-target="#product-modal" class="btn btn-warning btn-details">Read More</a>
+                            <a data-title="{{$product->product_name}}" href="#" data-id="{{$product->product_id}}"
+                               data-toggle="modal" data-target="#product-modal" class="btn btn-warning btn-details">Read
+                                More</a>
                         </div>
                     </div>
                 </div>
@@ -187,8 +188,9 @@
                 {!! $featuredproducts->render() !!}
             </div>
         </div>
-
     </div>
+
+
     <!-- Modal -->
     <div id="product-modal" class="modal fade" role="dialog">
         <div class="modal-dialog modal-lg">
@@ -203,7 +205,7 @@
 
                 </div>
                 {{--<div class="modal-footer">--}}
-                    {{--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>--}}
+                {{--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>--}}
                 {{--</div>--}}
             </div>
 

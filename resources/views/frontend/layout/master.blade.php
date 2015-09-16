@@ -35,6 +35,9 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53ce50fd69757b5d"
+            async="async"></script>
 
 </head>
 
@@ -58,6 +61,7 @@
 </div>
 <div id="baseurl" data-content="{{URL::to('/')}}"></div>
 <input type="hidden" class="countHistory">
+
 <div class="container">
     @include('frontend.layout.header')
 </div>
@@ -66,46 +70,46 @@
 
 @yield('content')
 
-
-<!-- Footer -->
-<footer class="row">
-    <div class="col-md-12 footer-container">
-        <div class="col-md-3">
-            <h4 class="all-head footer-head">Information</h4>
-            <ul class="footer-links">
-                <li><a href=""><i class="fa fa-arrow-right"></i>About us</a></li>
-                <li><a href=""><i class="fa fa-arrow-right"></i>Terms and Conditions</a></li>
-            </ul>
+<div class="container">
+    <!-- Footer -->
+    <footer class="row">
+        <div class="col-md-12 footer-container">
+            <div class="col-md-3">
+                <h4 class="all-head footer-head">Information</h4>
+                <ul class="footer-links">
+                    <li><a href=""><i class="fa fa-arrow-right"></i>About us</a></li>
+                    <li><a href=""><i class="fa fa-arrow-right"></i>Terms and Conditions</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h4 class="all-head footer-head">Customer service</h4>
+                <ul class="footer-links">
+                    <li><a href=""><i class="fa fa-arrow-right"></i>Contact us</a></li>
+                    <li><a href=""><i class="fa fa-arrow-right"></i>Feedback</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h4 class="all-head footer-head">Account</h4>
+                <ul class="footer-links">
+                    <li><a href=""><i class="fa fa-arrow-right"></i>My account</a></li>
+                    <li><a href=""><i class="fa fa-arrow-right"></i>Wishlist</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h4 class="all-head footer-head">Follow us</h4>
+                <ul class="socials">
+                    <li><a href=""><i class="fa fa-facebook fa-2x"></i></a></li>
+                    <li><a href=""><i class="fa fa-twitter fa-2x"></i></a></li>
+                    <li><a href=""><i class="fa fa-google-plus fa-2x"></i></a></li>
+                </ul>
+            </div>
         </div>
-        <div class="col-md-3">
-            <h4 class="all-head footer-head">Customer service</h4>
-            <ul class="footer-links">
-                <li><a href=""><i class="fa fa-arrow-right"></i>Contact us</a></li>
-                <li><a href=""><i class="fa fa-arrow-right"></i>Feedback</a></li>
-            </ul>
+        <div class="col-md-12 copyright-block">
+            <p>Copyright &copy; Your Website 2014</p>
         </div>
-        <div class="col-md-3">
-            <h4 class="all-head footer-head">Account</h4>
-            <ul class="footer-links">
-                <li><a href=""><i class="fa fa-arrow-right"></i>My account</a></li>
-                <li><a href=""><i class="fa fa-arrow-right"></i>Wishlist</a></li>
-            </ul>
-        </div>
-        <div class="col-md-3">
-            <h4 class="all-head footer-head">Follow us</h4>
-            <ul class="socials">
-                <li><a href=""><i class="fa fa-facebook fa-2x"></i></a></li>
-                <li><a href=""><i class="fa fa-twitter fa-2x"></i></a></li>
-                <li><a href=""><i class="fa fa-google-plus fa-2x"></i></a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="col-md-12 copyright-block">
-        <p>Copyright &copy; Your Website 2014</p>
-    </div>
-</footer>
-
+    </footer>
 </div>
+
 <!-- /.container -->
 
 <!-- jQuery -->
@@ -120,19 +124,19 @@
 
     $(document).ready(function () {
 
-        var owl =  $("#owl-demo");
+        var owl = $("#owl-demo");
         owl.owlCarousel({
-            items:5,
-            loop:true,
-            margin:10,
-            autoplay:true,
-            autoplayTimeout:1000,
-            autoplayHoverPause:true,
-            transitionStyle : "fade"
+            items: 5,
+            loop: true,
+            margin: 10,
+            autoplay: true,
+            autoplayTimeout: 1000,
+            autoplayHoverPause: true,
+            transitionStyle: "fade"
         });
 
 
-       //  Custom Navigation Events
+        //  Custom Navigation Events
         $(".next").click(function () {
             owl.trigger('owl.next');
         })
@@ -153,6 +157,7 @@
     });
     new WOW().init();
 </script>
+
 
 </body>
 

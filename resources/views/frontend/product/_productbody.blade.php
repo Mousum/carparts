@@ -1,4 +1,5 @@
 <!-- Content Row -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53ce50fd69757b5d" async="async"></script>
 <div class="row clearfix">
     <div class="col-md-12">
         <div class="well clearfix prod-detail-container">
@@ -68,6 +69,7 @@
 
                 {{--<div class="share-div">--}}
                 {{--<p>Share on:</p>--}}
+                    {{--<div class="addthis_sharing_toolbox"></div>--}}
                 {{--<ul class="socials">--}}
                 {{--<li><a href=""><i class="fa fa-facebook fa-2x"></i></a></li>--}}
                 {{--<li><a href=""><i class="fa fa-twitter fa-2x"></i></a></li>--}}

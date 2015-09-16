@@ -38,11 +38,12 @@ $(document).ready(function () {
             })
         });
     });
-    //$('body').on('click', '.close', function (e) {
-    //    alert();
-    //    window.history.go(-1);
-    //});
+
     $(".small-pic").click(function () {
         $(".large").attr('src', $(this).attr("data-value"));
+    });
+    $(".share").click(function(){
+        var link = $(this).attr('data-link');
+        $('.'+link).trigger('click');
     });
 });

@@ -74,11 +74,15 @@
 
                                 <div class="share-div">
                                     <p>Share on:</p>
-                                    <ul class="socials">
-                                        <li><a href=""><i class="fa fa-facebook fa-2x"></i></a></li>
-                                        <li><a href=""><i class="fa fa-twitter fa-2x"></i></a></li>
-                                        <li><a href=""><i class="fa fa-google-plus fa-2x"></i></a></li>
-                                    </ul>
+
+                                    <div class="addthis_sharing_toolbox"></div>
+                                    {{--<a class="addthis_button_compact">--}}
+                                    {{--<i class="fa fa-facebook fa-2x"></i></a>--}}
+                                    {{--<ul class="socials">--}}
+                                    {{--<li><a data-link="at-svc-facebook" href="" class="share"><i class="fa fa-facebook fa-2x"></i></a></li>--}}
+                                    {{--<li><a data-link = "at-svc-twitter" href="" class="share"><i class="fa fa-twitter fa-2x"></i></a></li>--}}
+                                    {{--<li><a data-link="at-svc-google_plusone_share" href="" class="share"><i class="fa fa-google-plus fa-2x"></i></a></li>--}}
+                                    {{--</ul>--}}
                                 </div>
 
                             </div>
