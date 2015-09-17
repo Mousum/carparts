@@ -46,4 +46,10 @@ $(document).ready(function () {
         var link = $(this).attr('data-link');
         $('.'+link).trigger('click');
     });
+    $body = $("body");
+
+    $(document).on({
+        ajaxStart: function() { $body.addClass("loading");    },
+        ajaxStop: function() { $body.removeClass("loading"); }
+    });
 });

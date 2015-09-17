@@ -81,8 +81,8 @@ return [
 //			'driver'    => 'mysql',
 //			'host'      => 'localhost',
 //			'database'  => 'dgapservice_carparts',
-//			'username'  => 'dgap_admin',
-//			'password'  => 'dg@ps3rvic3s',
+//			'username'  => 'dgap_admin',//'dgap_dev',//
+//			'password'  => 'dg@ps3rvic3s',//'cb&?D7SArEDD',//
 //			'charset'   => 'utf8',
 //			'collation' => 'utf8_unicode_ci',
 //			'prefix'    => '',

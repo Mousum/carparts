@@ -15,7 +15,7 @@
                                         <?php list($name, $ext) = explode('.', $images[0]);?>
 
                                         <div class="col-xs-12 col-md-12">
-                                            <a href="#" class="thumbnail">
+                                            <a href="javascript:void(0);" class="thumbnail">
                                                 <img class="img-responsive large"
                                                      src="{{URL::to('uploads/product_images/'. $name.'_500x450.'.$ext)}}">
                                             </a>

@@ -87,7 +87,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Username</label>
-                                                        <input type="email" class="form-control" id="username" placeholder="Enter email">
+                                                        <input type="text" class="form-control" id="username" placeholder="Enter Username">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="exampleInputPassword1">Password</label>
@@ -96,22 +96,22 @@
 
                                                     <button type="submit" id="btn_login" class="btn btn-primary btn-block">Login</button>
 
-                                                    <div class="checkbox">
-                                                        <label>
-                                                            <input type="checkbox"> Remember my details
-                                                        </label>
-                                                    </div>
+                                                    {{--<div class="checkbox">--}}
+                                                        {{--<label>--}}
+                                                            {{--<input type="checkbox"> Remember my details--}}
+                                                        {{--</label>--}}
+                                                    {{--</div>--}}
                                                 </form>
 
                                             </div>
 
                                         </div>
-                                        <div class="col-sm-4 col-sm-offset-4 text-center">
-                                            <div class="innerAll">
-                                                <a href="signup.html?lang=en" class="btn btn-info">Create a new account? <i class="fa fa-pencil"></i> </a>
-                                                <div class="separator"></div>
-                                            </div>
-                                        </div>
+                                        {{--<div class="col-sm-4 col-sm-offset-4 text-center">--}}
+                                            {{--<div class="innerAll">--}}
+                                                {{--<a href="signup.html?lang=en" class="btn btn-info">Create a new account? <i class="fa fa-pencil"></i> </a>--}}
+                                                {{--<div class="separator"></div>--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
                                         <div class="clearfix"></div>
 
                                     </div>

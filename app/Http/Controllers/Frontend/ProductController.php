@@ -14,6 +14,7 @@ use App\Models\Engine;
 use App\Models\Moodel;
 use App\Models\Products;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Lang;
 
 class ProductController extends FrontBaseController
 {
@@ -51,6 +52,6 @@ class ProductController extends FrontBaseController
     public function ProductDetails($slug){
         $arr = explode('-',trim($slug));
         $product = Products::with('Departments')->where('product_id', '=',$arr[0])->first();
-        return view('frontend.product.productdetails', ['product' => $product]);
+        return view('frontend.product.productdetails', ['product' => $product,'siteTitle'=>$product->product_name." | ".Lang::get("site.company_name")]);
     }
 }

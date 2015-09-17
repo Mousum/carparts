@@ -105,13 +105,15 @@
             </div>
         </div>
         <div class="col-md-12 copyright-block">
-            <p>Copyright &copy; Your Website 2014</p>
+            <p>Copyright &copy;  {{Lang::get("site.company_name").' '.date('Y')}}</p>
         </div>
     </footer>
+
 </div>
 
 <!-- /.container -->
-
+<!--Loading-->
+<div class="modal loading-modal"><!-- Place at bottom of page --></div>
 <!-- jQuery -->
 <script src="{{URL::to('resources/assets/frontend/js/jquery.js')}}"></script>
 
@@ -130,7 +132,7 @@
             loop: true,
             margin: 10,
             autoplay: true,
-            autoplayTimeout: 1000,
+            autoplayTimeout: 1500,
             autoplayHoverPause: true,
             transitionStyle: "fade"
         });

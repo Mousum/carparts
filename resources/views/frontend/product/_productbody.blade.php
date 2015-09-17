@@ -1,5 +1,5 @@
 <!-- Content Row -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53ce50fd69757b5d" async="async"></script>
+{{--<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53ce50fd69757b5d" async="async"></script>--}}
 <div class="row clearfix">
     <div class="col-md-12">
         <div class="well clearfix prod-detail-container">
@@ -17,7 +17,7 @@
                         </div>
                     @else
                         <div class="col-xs-12 col-md-12">
-                            <a href="#" class="thumbnail">
+                            <a href="javascript:void(0);" class="thumbnail">
                                 <img class="img-responsive" src="http://placehold.it/500x450" alt="...">
                             </a>
                         </div>
@@ -29,7 +29,7 @@
                             <div class="col-xs-6 col-md-4">
                                 <?php list($name, $ext) = explode('.', $value);?>
 
-                                <a href="#" class="thumbnail small-pic"
+                                <a href="javascript:void(0);" class="thumbnail small-pic"
                                    data-value="{{URL::to('uploads/product_images/'. $name.'_500x450.'.$ext)}}">
                                     <img class="img-responsive"
                                          src="{{URL::to('uploads/product_images/'.$name.'_150x150.'.$ext)}}">
@@ -39,7 +39,7 @@
                         @endforeach
                     @else
                         <div class="col-xs-6 col-md-4">
-                            <a href="#" class="thumbnail">
+                            <a href="javascript:void(0);" class="thumbnail">
                                 <img class="img-responsive" src="http://placehold.it/150x150" alt="...">
                             </a>
                         </div>
@@ -64,7 +64,7 @@
                 </p>
 
                 <p class="price">Price : $ {{$product->product_price}}</p>
-                <a data-role="button" href="{{URL::to('productdetails/'.$product->product_id.'-'.str_replace(' ','-',strtolower($product->product_name)))}}" class="btn btn-warning">View Full Details</a>
+                <a data-role="button" href="{{URL::to('productdetails/'.$product->product_id.'-'.str_replace(' ','-',strtolower($product->product_name)))}}" class="btn btn-warning">More Details</a>
 
 
                 {{--<div class="share-div">--}}

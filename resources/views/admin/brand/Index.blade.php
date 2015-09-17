@@ -25,7 +25,7 @@
                         @foreach($brands as $item)
                         <tr>
                             <td><?php echo ++$i;?> </td>
-                            <td><img src="{{$item['brand_logo']}}" alt="{{$item['brand_name']}}" height="42" width="42"></td>
+                            <td><img src="{{URL::to('/').'/'.$item['brand_logo']}}" alt="{{$item['brand_name']}}" height="42" width="42"></td>
                             <td>{{$item['brand_name']}} </td>
 
                             <td>
