@@ -64,7 +64,7 @@
                 </p>
 
                 <p class="price">Price : $ {{$product->product_price}}</p>
-                <a data-role="button" href="{{URL::to('productdetails/'.$product->product_id.'-'.str_replace(' ','-',strtolower($product->product_name)))}}" class="btn btn-info">View Full Details</a>
+                <a data-role="button" href="{{URL::to('productdetails/'.$product->product_id.'-'.str_replace(' ','-',strtolower($product->product_name)))}}" class="btn btn-warning">View Full Details</a>
 
 
                 {{--<div class="share-div">--}}

@@ -193,7 +193,7 @@
 
     <!-- Modal -->
     <div id="product-modal" class="modal fade" role="dialog">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog custom-modal-prod modal-lg">
 
             <!-- Modal content-->
             <div class="modal-content">

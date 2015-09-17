@@ -5,7 +5,7 @@
         <div class="row clearfix">
             <div class="container">
                 <!-- Content Row -->
-                <div class="row clearfix">
+                <div class="row clearfix prod-detailed">
                     <div class="col-md-12">
                         <div class="well clearfix prod-detail-container">
                             <div class="col-md-6 product-image-container wow slideInLeft">

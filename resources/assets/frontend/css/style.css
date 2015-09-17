@@ -819,8 +819,42 @@ footer {
     background: #9EEB62;
 }
 
+.custom-modal-prod{}
+.custom-modal-prod .modal-header{
+    background: #FD5503;
+    color: #fff;
+}
+.custom-modal-prod .well{
+    box-shadow: none;
+    border: 0px;
+    padding: 0px;
+}
+.custom-modal-prod .well h4{
+    color: #FD5503;
+}
+.modal-open .modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: rgba(255, 94, 0, 0.18);
+}
+.prod-detailed{
 
-
+}
+.prod-detailed .well{
+    box-shadow: none;
+    border: 0px;
+    padding: 0px;
+    background: transparent;
+}
+.prod-detailed .well h4{
+    color: #FD5503;
+}
+.color-tag{
+    color: #FD5503;
+}
+.bold-tag{
+    font-weight: bold;
+}
 
 
 
