@@ -10,5 +10,9 @@ return [
     'create_account'=>'Create an account',
     'login' =>'Login',
     'home'=>'Home',
-    'products'=>'Products'
+    'products'=>'Products',
+    'about_company'=>'About Us',
+    'why_us'=>'Why Choose Us',
+    'events'=>'Events',
+
 ];

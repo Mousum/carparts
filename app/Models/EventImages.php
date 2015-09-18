@@ -20,7 +20,10 @@ class EventImages extends Model {
     protected $table = 'event_images';
     public $timestamps = FALSE;
     protected $primaryKey = 'img_id';
-    
+
+    public function Events(){
+        $this->hasOne('App\Models\Events','event_id','event_id');
+    }
  
 
 }

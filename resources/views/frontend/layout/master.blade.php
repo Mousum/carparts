@@ -122,6 +122,7 @@
 <script src="{{URL::to('resources/assets/frontend/js/owl.carousel.js')}}"></script>
 <script src="{{URL::to('resources/assets/frontend/js/owl.carousel.min.js')}}"></script>
 <script src="{{URL::to('resources/assets/frontend/js/frontend.custom.js')}}"></script>
+<script src="{{URL::to('resources/assets/frontend/js/wow.js')}}"></script>
 <script>
 
     $(document).ready(function () {

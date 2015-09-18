@@ -57,7 +57,7 @@
                                 <h5 class="prod-code">Product code: <span> {{$product->product_code}} </span></h5>
 
                                 <p class="desc">
-                                    <span>Description:</span><br>
+                                    <span class="bold-tag">Description:</span><br>
                                     <?php $descritons = json_decode($product->product_meta_descriptions); ?>
                                     @if($descritons!=null)
                                         @foreach($descritons as $des)
@@ -68,7 +68,7 @@
 
                                 </p>
 
-                                <p class="price">Price : $ {{$product->product_price}}</p>
+                                <p class="price">Price : <span class="color-tag">$ {{$product->product_price}}</span></p>
                                 <button class="btn btn-warning">Add To Wish List</button>
 
 

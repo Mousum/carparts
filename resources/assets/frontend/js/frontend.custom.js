@@ -52,4 +52,18 @@ $(document).ready(function () {
         ajaxStart: function() { $body.addClass("loading");    },
         ajaxStop: function() { $body.removeClass("loading"); }
     });
+    $(".btn-event").click(function(){
+        // alert($(this).attr('data-id'));
+        var  id = $(this).attr('data-id');
+        //var  title =  $(this).attr('data-title').toLowerCase().replace(/\s+/g, '-');
+        $.get(baseurl+'/eventdetails?id='+$(this).attr('data-id'),function(data){
+        //    //$('.countHistory').val($('.countHistory').val()+1);
+        //    //window.history.pushState("", "", baseurl+"/event/"+title);
+            $(".modal-body").html(data);
+        //    $('#product-modal').on('hidden.bs.modal', function () {
+        //        //window.history.go(-$('.countHistory').val());
+        //        //$('.countHistory').val(0);
+        //    })
+        });
+    });
 });

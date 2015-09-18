@@ -5,14 +5,14 @@
         <div class="well clearfix prod-detail-container">
             <div class="col-md-6 product-image-container">
                 <div class="row">
-                    <?php $images = json_decode($product->product_images); ?>
-                    @if($images!=null)
-                        <?php list($name, $ext) = explode('.', $images[0]);?>
+
+                    @if($event->EventImages!=null)
+
 
                         <div class="col-xs-12 col-md-12">
                             <a href="#" class="thumbnail">
                                 <img class="img-responsive large"
-                                     src="{{URL::to('uploads/product_images/'. $name.'_500x450.'.$ext)}}">
+                                     src="{{URL::to('/').'/'.$event->EventImages->first()->img_location}}">
                             </a>
                         </div>
                     @else
@@ -24,15 +24,14 @@
                     @endif
                 </div>
                 <div class="row">
-                    @if($images!=null)
-                        @foreach($images as $key=>$value)
+                    @if($event->EventImages!=null)
+                        @foreach($event->EventImages as $image)
                             <div class="col-xs-6 col-md-4">
-                                <?php list($name, $ext) = explode('.', $value);?>
 
                                 <a href="javascript:void(0);" class="thumbnail small-pic"
-                                   data-value="{{URL::to('uploads/product_images/'. $name.'_500x450.'.$ext)}}">
+                                   data-value="{{URL::to('/').'/'.$image->img_location}}">
                                     <img class="img-responsive"
-                                         src="{{URL::to('uploads/product_images/'.$name.'_150x150.'.$ext)}}">
+                                         src="{{URL::to('/').'/'.$image->img_location}}">
 
                                 </a>
                             </div>
@@ -48,28 +47,24 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <h4 class="text-uppercase">{{$product->product_name}}</h4>
-                <h5 class="prod-code">Product code: <span> {{$product->product_code}} </span></h5>
+                <h4 class="text-uppercase">{{$event->event_name}}</h4>
+                <h5 class="prod-code"> <small><span><i class=" fa fa-map-marker color-tag"></i> {{$event->event_location}}</span></small><br/>
+                    <small><span><i class=" fa  fa-calendar color-tag"></i> {{date('l jS \of F Y h:i:s A',$event->event_time)}}</span></small></h5>
 
                 <p class="desc">
-                    <span>Description:</span>
-                    <?php $descritons = json_decode($product->product_meta_descriptions); ?>
-                    @if($descritons!=null)
-                        @foreach($descritons as $des)
-                            {{$des->key}} : {{$des->value}}<br>
-                        @endforeach
-
-                    @endif
+                   {{$event->even_description}}
 
                 </p>
 
-                <p class="price">Price :  <span class="color-tag">$ {{$product->product_price}}</span></p>
-                <a data-role="button" href="{{URL::to('productdetails/'.$product->product_id.'-'.str_replace(' ','-',strtolower($product->product_name)))}}" class="btn btn-warning">More Details</a>
+                {{--<p class="price">Price : <span class="color-tag">$ {{$product->product_price}}</span></p>--}}
+                {{--<a data-role="button"--}}
+                   {{--href="{{URL::to('productdetails/'.$product->product_id.'-'.str_replace(' ','-',strtolower($product->product_name)))}}"--}}
+                   {{--class="btn btn-warning">More Details</a>--}}
 
 
                 {{--<div class="share-div">--}}
                 {{--<p>Share on:</p>--}}
-                    {{--<div class="addthis_sharing_toolbox"></div>--}}
+                {{--<div class="addthis_sharing_toolbox"></div>--}}
                 {{--<ul class="socials">--}}
                 {{--<li><a href=""><i class="fa fa-facebook fa-2x"></i></a></li>--}}
                 {{--<li><a href=""><i class="fa fa-twitter fa-2x"></i></a></li>--}}

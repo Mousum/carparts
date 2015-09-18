@@ -123,10 +123,14 @@ Route::post('vehicle/update/{id}','Admin\VehicleController@UpdateVehicle');
 //Site
 
 Route::get('/','Frontend\SiteController@Home');
-
+Route::get('/about','Frontend\SiteController@About');
+Route::get('/why-us','Frontend\SiteController@WhyUs');
+Route::get('/events','Frontend\SiteController@Events');
+Route::get('/eventdetails','Frontend\SiteController@EventDetailsPartial');
 //Product
 Route::get('/getmodels','Frontend\ProductController@GetModel');
 Route::get('/getengines','Frontend\ProductController@GetEngine');
 Route::get('/productdetailspartial','Frontend\ProductController@GetProductDetailsPartial');
 Route::get('/productdetails/{slug}','Frontend\ProductController@ProductDetails');
+
 

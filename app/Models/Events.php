@@ -35,7 +35,7 @@ class Events extends Model {
         return $data; 
     }
     public function EventImages(){
-        return $this->hasMany('EventImages');
+        return $this->hasMany('App\Models\EventImages','event_id','event_id');
     }
 }
 
